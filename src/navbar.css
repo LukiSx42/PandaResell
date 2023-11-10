@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+.navbar {
+    background-color: #102B3F;
+    top: 0;
+    margin-top: 0;
+    padding-top: 0;
+    color: #A06CD5;
+    height: 4vw;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 50px;
+}
+
+#navbarLogo {
+    position: absolute;
+    top: 0;
+    width: 2.3vw;
+    min-width: 30px;
+    margin: 0.5vw;
+    margin-left: max(1vw, 10px);
+    margin-top: max(0.5vw, 5px);
+    padding: 0;
+    filter: drop-shadow(0 0 0.6rem #FC6207);
+}
+
+#navbarTitle {
+    position: absolute;
+    top: min(-0.8vw, -8px);
+    margin-left: max(50px, 4.5vw);
+    transition: all 0.5s ease-in-out;
+    transform: rotate3d(0,0,0,0deg);
+    font-size: max(2.2vw, 25px);
+}
+
+.navbarList {
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Roboto';
+    font-size: max(1.5vw, 20px);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    top: -5vw;
+}
+
+.navbarLink {
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    transform: rotate3d(0,0,0,0deg);
+    color: #A06CD5;
+    float: right;
+    text-align: center;
+    padding: 15px max(5px, 2vw);
+    text-decoration: none;
+}
+
+.navbarLink:hover {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    transform: rotate3d(0,0,0,0deg);
+    text-shadow:1px 3px 7px #A06CD5,
+        1px 5px 15px #A06CD5;
+    cursor: pointer;
+}
+
+.navbarItem {
+    display: inline-block;
+}
