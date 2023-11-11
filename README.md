@@ -1,2 +1,2 @@
 # Panda Resell
-> This my website whitch I use to resell products from **pandabuy**
+> This is my website which I use to resell products from **pandabuy**
