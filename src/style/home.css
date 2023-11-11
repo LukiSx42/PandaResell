@@ -247,6 +247,7 @@
 #homeTitleBox {
   align-items: center;
   text-align: center;
+  padding-top: 1.5vw;
 }
 
 #homeTitle {

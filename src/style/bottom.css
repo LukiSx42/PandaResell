@@ -4,9 +4,14 @@
 }
 
 .bottom {
+    position: absolute;
     background-color: #102B3F;
-    border-radius: 5vw;
-    height: max(2vw, 20px);
+    border-radius: 2vw 2vw 0 0;
+    height: max(3vw, 20px);
+    margin: 0;
+    padding: 0;
+    padding-bottom: max(0.8vw, 40px);
+    width: 100%;
 }
 
 .bottom h2 {
