@@ -1,0 +1,17 @@
+.spacer {
+    height: max(3vw, 30px);
+    background-color: #E2CFEA;
+}
+
+.bottom {
+    background-color: #102B3F;
+    border-radius: 5vw;
+    height: max(2vw, 20px);
+}
+
+.bottom h2 {
+    float: right;
+    margin: max(1vw, 20px);
+    font-size: max(1.25vw, 20px);
+    color: #E2CFEA;
+}

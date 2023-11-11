@@ -1,5 +1,23 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway");
 
+@media only screen and (min-width: 570px) {
+    .dropdownBody {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    .navbarList {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 355px) {
+    #navbarTitle {
+        display: none;
+    }
+}
+
 .navbar {
     background-color: #102B3F;
     top: 0;
@@ -43,7 +61,6 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    top: -5vw;
 }
 
 .navbarLink {
@@ -53,7 +70,7 @@
     color: #A06CD5;
     float: right;
     text-align: center;
-    padding: 15px max(5px, 2vw);
+    padding: max(0.8vw, 10px) max(5px, 2vw);
     text-decoration: none;
 }
 
@@ -68,4 +85,17 @@
 
 .navbarItem {
     display: inline-block;
+}
+
+.dropdownBody {
+    position: absolute;
+    right: max(2vw, 10px);
+    top: max(0.5vw, 5px);
+}
+
+.dropdown:checked + label,
+.dropdown:not(:checked) + label {
+    width: max(10vw, 110px);
+    height: max(3vw, 40px);
+    font-size: max(1.5vw, 18px);
 }
