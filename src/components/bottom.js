@@ -5,8 +5,10 @@ const BottomBar = () => {
     return (
         <div>
             <div className="spacer"></div>
-            <div className="bottom">
-                <h2>©️ W-Productions Luk1S</h2>
+            <div className="bottom-background">
+                <div className="bottom">
+                    <h2>©️ W-Productions Luk1S</h2>
+                </div>
             </div>
         </div>
     );
