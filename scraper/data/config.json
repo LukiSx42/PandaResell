@@ -1,0 +1,45 @@
+{
+    "sellers": {
+        "husky": {
+            "name": "Husky Reps",
+            "description": "Just testing",
+            "shops": [ "https://husky-reps.x.yupoo.com/categories/" ],
+            "category": "all",
+            "brand": "all",
+            "URLwhitelist": [
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3456785",
+                    "name": "T-Shirt",
+                    "items": {
+                        "type": "T-Shirt"
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3456797",
+                    "name": "SHORTS",
+                    "items": {
+                        "type": "Shorts"
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/4158993",
+                    "name": "T-Shirt Shirt",
+                    "items": {
+                        "type": ["T-Shirt", "Shorts"]
+                    }
+                }
+            ],
+            "brandDecoder": {
+                "L<STAR>": "Louis Vuitton",
+                "FOG": "Fear Of God"
+            }
+        }
+    },
+    "blacklist": [
+        "catalog",
+        "all categories",
+        "on sale",
+        "uncategorized album",
+        "brand classification"
+    ]
+}
