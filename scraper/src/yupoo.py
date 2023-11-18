@@ -7,18 +7,26 @@ class YupooScraper:
         self.cfg = config
         self.db = database
         self.emojis = emojis
-        self.loadCookies()
         self.driver = driver
         self.conversionRate = self.calcYuan()
         self.brands = self.loadBrandDB()
     
     def loadBrandDB(self):
+        brand_db = {}
+        
         f = open("./data/brand_db.json", 'r')
         db = json.loads(f.read())
         f.close()
 
         for brand in db["brands"].keys():
-            pass
+            for alias in db["brands"][brand]["aliases"] + [ brand ]:
+                if self.emojis: # Using Emojis
+                    for emoji in list(self.emojis.keys()):
+                        if emoji in alias:
+                            alias.replace(emoji, self.emojis[emoji])
+                brand_db[alias] = db["brands"][brand]["name"]
+        
+        return brand_db
     
     def calcYuan(self):
         r = requests.get('https://api.frankfurter.app/latest?amount=1&from=EUR&to=CNY')
@@ -36,19 +44,6 @@ class YupooScraper:
                 "yuanToEuro": conv["rates"]["CNY"],
                 "euroToYuan": eurToYuan
             }
-    
-    def loadCookies(self):
-        f = open('./data/cookies.json', 'r')
-        self.cookies = json.loads(f.read())["cookies"]
-        f.close()
-
-        if type(self.cookies) == list:
-            newCookies = {}
-            for cookie in self.cookies:
-                if cookie["expirationDate"] < time.time():
-                    print("[Y] Warning: Cookies are outdated!")
-                newCookies[cookie["name"]] = cookie["value"]
-            self.cookies = newCookies
 
     def loadCategories(self, seller, url):
         if "URLwhitelist" in seller.keys():
@@ -181,6 +176,12 @@ class YupooScraper:
                 "brand": "",
                 "type": "",
             }
+            
+            if "items" in category.keys(): # Applying prespecified info
+                if "type" in category["items"].keys():
+                    i["type"] = category["items"]["type"]
+                if "brand" in category["items"].keys():
+                    i["brand"] = category["items"]["brand"]
 
             if "husky" in seller["name"] or True: # DEFAULT NAME PARSING ROUTE
                 # SKIPPING ITEMS WE CANNOT PARSE
@@ -194,12 +195,23 @@ class YupooScraper:
                 
                 # NAME PARSING
                 i["name"] = name.split("(")[0].replace(".", "").replace("~", "").replace(",", "")
-                while i["name"][-1] == " ": # Remove additional spaces at the end
-                    i["name"] = i["name"][:-1]
                 i["name"] = i["name"][i["name"].index(str(nums[0]))+len(str(nums[0])):]
+                
+                # BRAND DECODING + PARSING
+                for brand in list(self.brands.keys()) + [ "" ]:
+                    if brand in i["name"]:
+                        break
+                if brand == "": # Brand not found in name of the item -> skipping...
+                    print("[Y] ! Warning: No brand was found in item '{}'\n > Skipping item...".format(i["name"]))
+                    continue
+                i["brand"] = self.brands[brand]
+                
+                # NAME PARSING - REMOVING SPACES AFTER BRAND DECODING
+                i["name"] = i["name"].replace(brand, "") # Removing brand from item name
                 while i["name"][0] == " ": # Remove additional spaces at the start
                     i["name"] = i["name"][1:]
-                # TODO: Add brand decoding here
+                while i["name"][-1] == " ": # Remove additional spaces at the end
+                    i["name"] = i["name"][:-1]
 
                 # BASE PRICE PARSING
                 i["basePrice"]["yuan"] = int(nums[0])
@@ -209,10 +221,10 @@ class YupooScraper:
                 rounded = round(i["basePrice"]["eur"]/5)*5
                 i["price"] = (rounded, rounded+(5*(math.floor(rounded/50) + 1)))
                 
-                # TODO: BRAND PARSING
-                # 
-                
-                # TODO: OTHER
+                # TODO: TYPE PARSING (NOT REQUIRED WITH HUSKY REPS)
+                print(i)
+                self.driver.close()
+                exit()
 
             parsed.append(i)
 

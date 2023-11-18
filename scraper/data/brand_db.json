@@ -2,7 +2,9 @@
     "brands": {
         "LV": {
             "name": "Louis Vuitton",
-            "aliases": []
+            "aliases": [
+                "L<STAR>"
+            ]
         },
         "FOG": {
             "name": "Fear Of God",
