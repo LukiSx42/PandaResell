@@ -1,0 +1,12 @@
+{
+    "brands": {
+        "LV": {
+            "name": "Louis Vuitton",
+            "aliases": []
+        },
+        "FOG": {
+            "name": "Fear Of God",
+            "aliases": []
+        }
+    }
+}

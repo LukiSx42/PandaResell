@@ -28,11 +28,7 @@
                         "type": ["T-Shirt", "Shorts"]
                     }
                 }
-            ],
-            "brandDecoder": {
-                "L<STAR>": "Louis Vuitton",
-                "FOG": "Fear Of God"
-            }
+            ]
         }
     },
     "blacklist": [
@@ -41,5 +37,8 @@
         "on sale",
         "uncategorized album",
         "brand classification"
-    ]
+    ],
+    "options": {
+        "image_load_time": 0.5
+    }
 }

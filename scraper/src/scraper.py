@@ -3,11 +3,12 @@ from selenium import webdriver
 import os, json
 
 class Scraper:
-    def __init__(self, config) -> None:
+    def __init__(self, config, emojis=None) -> None:
         self.cfg = config
+        self.emojis = emojis
         self.loadDatabase()
         self.driver = webdriver.Chrome()
-        self.yupoo = YupooScraper(self.cfg, self.db, self.driver)
+        self.yupoo = YupooScraper(self.cfg, self.db, self.driver, self.emojis)
     
     def loadDatabase(self):
         if os.path.isfile("./data/database.json"):

@@ -14,13 +14,7 @@ if not config:
 emoji_db = {
     "<STAR>": '⭐'
 }
-for seller in config["sellers"].keys():
-    for decoder in list(config["sellers"][seller]["brandDecoder"].keys()).copy():
-        for emoji in emoji_db.keys():
-            if emoji in decoder:
-                config["sellers"][seller]["brandDecoder"][decoder.replace(emoji, emoji_db[emoji])] = config["sellers"][seller]["brandDecoder"].pop(decoder)
-
 
 ## STARTING SCRAPER ##
-s = Scraper(config)
+s = Scraper(config, emojis=emoji_db)
 s.run()
