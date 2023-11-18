@@ -86,6 +86,11 @@
     display: inline-block;
 }
 
+.active {
+    text-shadow:1px 1px 7px #A06CD5,
+        1px 1px 15px #A06CD5;
+}
+
 .dropdownBody {
     position: absolute;
     right: max(2vw, 10px);

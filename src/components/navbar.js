@@ -3,23 +3,32 @@ import '../style/textEffects.css';
 import '../style/navbar.css';
 import { useNavigate } from "react-router-dom";
 
-function NavbarList() {
+function NavbarList(props) {
   return (
     <ul className="navbarList">
-        <li>
-            <a href="/kontakt" className="navbarLink">📞 Kontakt</a>
-        </li>
-        <li>
-            <a href="/itemy" className="navbarLink">🔥 Itemy</a>
-        </li>
-        <li>
-            <a href="/info" className="navbarLink">📖 Info</a>
-        </li>
+      <li>
+        <a href={((props.active == "kontakt") ? "#" : "/kontakt")}
+          className={"navbarLink "+((props.active == "kontakt") ? "active" : "")}>
+          📞 Kontakt
+        </a>
+      </li>
+      <li>
+        <a href={((props.active == "itemy") ? "#" : "/itemy")}
+          className={"navbarLink "+((props.active == "itemy") ? "active" : "")}>
+          🔥 Itemy
+        </a>
+      </li>
+      <li>
+        <a href={((props.active == "info") ? "#" : "/info")}
+          className={"navbarLink "+((props.active == "info") ? "active" : "")}>
+          📖 Info
+        </a>
+      </li>
     </ul>
   );
 }
 
-function Navbar() {
+function Navbar(props) {
   const navigate = useNavigate();
   const navToHome = () => {
     navigate('/');
@@ -29,7 +38,7 @@ function Navbar() {
     <div>
       <Dropdown />
       <div className="navbar">
-        <NavbarList />
+        <NavbarList active={ props.active } />
         <div className="navbarItem">
           <img src="/logo.png" id="navbarLogo" />
         </div>

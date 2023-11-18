@@ -79,7 +79,7 @@ const InfoQuestions = () => {
 const Info = () => {
     return (
         <div>
-            <Navbar />
+            <Navbar active="info" />
             <div className="info">
                 <InfoCards />
                 <h1 id="questions-title">
