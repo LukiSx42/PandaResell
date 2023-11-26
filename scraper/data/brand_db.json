@@ -8,7 +8,591 @@
         },
         "FOG": {
             "name": "Fear Of God",
-            "aliases": []
+            "aliases": [
+                "FOG"
+            ]
+        },
+        "TNF": {
+            "name": "The North Face",
+            "aliases": [
+                "T<STAR><STAR>N<STAR><STAR>F<STAR><STAR>"
+            ]
+        },
+        "ARC": {
+            "name": "arc'teryx",
+            "aliases": [
+                "AR<STAR><STAR>E<STAR><STAR>X"
+            ]
+        },
+        "ALEX": {
+            "name": "Alexander Wang",
+            "aliases": [
+                "A<STAR><STAR>X<STAR><STAR><STAR>ER W<STAR><STAR>G"
+            ]
+        },
+        "AMI": {
+            "name": "Ami",
+            "aliases": [
+                "A<STAR>I"
+            ]
+        },
+        "JORDAN": {
+            "name": "Air Jordan",
+            "aliases": [
+                "AIR JORDAN"
+            ]
+        },
+        "ASSC": {
+            "name": "Anti Social Social Club",
+            "aliases": [
+                "ANTI SOCIAL SOCIAL CLUB"
+            ]
+        },
+        "ACNE": {
+            "name": "Acne Studios",
+            "aliases": [
+                "ACNE STUDIOS"
+            ]
+        },
+        "MCQUEEN": {
+            "name": "Alexander McQueen",
+            "aliases": [
+                "ALEXANDER MCQUEEN"
+            ]
+        },
+        "AND": {
+            "name": "And Wander",
+            "aliases": [
+                "AND WANDER"
+            ]
+        },
+        "ALD": {
+            "name": "Aime Leon Dore",
+            "aliases": [
+                "AI<STAR><STAR> LE<STAR><STAR> DO<STAR><STAR>"
+            ]
+        },
+        "AF": {
+            "name": "American Football",
+            "aliases": [
+                "AMERICAN FOOTBALL"
+            ]
+        },
+        "BEN": {
+            "name": "Ben Davis",
+            "aliases": [
+                "BEN DAVIS"
+            ]
+        },
+        "BRAIN": {
+            "name": "Brain Dead",
+            "aliases": [
+                "BRAIN DEAD"
+            ]
+        },
+        "DAZE": {
+            "name": "Better Daze",
+            "aliases": [
+                "BETTER DAZE"
+            ]
+        },
+        "BRUNE": {
+            "name": "Brunello Cucinelli",
+            "aliases": [
+                "BRUNELLO CUCINELLI"
+            ]
+        },
+        "BOTT": {
+            "name": "Bottega Veneta",
+            "aliases": [
+                "BO<STAR><STAR><STAR>GA V<STAR><STAR><STAR><STAR>A"
+            ]
+        },
+        "CARH": {
+            "name": "Carhartt",
+            "aliases": [
+                "CA<STAR>H<STAR><STAR>TT"
+            ]
+        },
+        "CHARLIE": {
+            "name": "Charlie Luciano",
+            "aliases": [
+                "CHARLIE LUCIANO"
+            ]
+        },
+        "CH": {
+            "name": "Chrome Hearts",
+            "aliases": [
+                "C<STAR><STAR>OME HE<STAR><STAR>TS"
+            ]
+        },
+        "CEL": {
+            "name": "Celine",
+            "aliases": [
+                "C<STAR>L<STAR><STAR>E"
+            ]
+        },
+        "CHMP": {
+            "name": "Champion",
+            "aliases": [
+                "CH<STAR><STAR>P<STAR><STAR>N"
+            ]
+        },
+        "CHANL": {
+            "name": "Chanel",
+            "aliases": [
+                "C<STAR>A<STAR>E<STAR>"
+            ]
+        },
+        "GOOSE": {
+            "name": "Canada Goose",
+            "aliases": [
+                "C<STAR>A G<STAR>E"
+            ]
+        },
+        "CLMB": {
+            "name": "Columbia",
+            "aliases": [
+                "C<STAR><STAR>U<STAR><STAR>IA"
+            ]
+        },
+        "CHINA": {
+            "name": "Chinatown Market",
+            "aliases": [
+                "CHINATOWN MARKET"
+            ]
+        },
+        "COLE": {
+            "name": "Cole Buxton",
+            "aliases": [
+                "COLE BUXTON"
+            ]
+        },
+        "COOTIE": {
+            "name": "Cootie Productions",
+            "aliases": [
+                "COOTIE PRODUCTIONS"
+            ]
+        },
+        "DAIWA": {
+            "name": "Daiwa Pier39",
+            "aliases": [
+                "DAIWA PIER39"
+            ]
+        },
+        "DANIEL": {
+            "name": "Daniel Patrick",
+            "aliases": [
+                "DANIEL PATRICK"
+            ]
+        },
+        "DOLCE": {
+            "name": "Dolce Gabbana",
+            "aliases": [
+                "DOLCE GABBANA"
+            ]
+        },
+        "ERIC": {
+            "name": "Eric Emanuei",
+            "aliases": [
+                "ERIC EMANUEI"
+            ]
+        },
+        "EMP": {
+            "name": "Emporio Armani",
+            "aliases": [
+                "EMPORIO ARMANI"
+            ]
+        },
+        "FRED": {
+            "name": "Fred Perry",
+            "aliases": [
+                "FRED PERRY"
+            ]
+        },
+        "FENDI": {
+            "name": "Fendi",
+            "aliases": [
+                "F<STAR><STAR>DI"
+            ]
+        },
+        "AWSM": {
+            "name": "Fucking Awesome",
+            "aliases": [
+                "FUCKING AWESOME"
+            ]
+        },
+        "FALSE": {
+            "name": "False Preception",
+            "aliases": [
+                "FALSE PERCEPTION"
+            ]
+        },
+        "GALL": {
+            "name": "Gallery Dept",
+            "aliases": [
+                "GALLERY DEPT"
+            ]
+        },
+        "GIVE": {
+            "name": "Givenchy",
+            "aliases": [
+                "G<STAR><STAR>E <STAR><STAR>H<STAR>"
+            ]
+        },
+        "GOD": {
+            "name": "God Selection",
+            "aliases": [
+                "GOD SELECTION"
+            ]
+        },
+        "DIOR": {
+            "name": "Dior",
+            "aliases": [
+                "D <STAR> O <STAR>"
+            ]
+        },
+        "HUGO": {
+            "name": "Hugo Boss",
+            "aliases": [
+                "HUGO BOSS"
+            ]
+        },
+        "HUMAN": {
+            "name": "Human Made",
+            "aliases": [
+                "HUMAN MADE"
+            ]
+        },
+        "HOMME": {
+            "name": "Homme Femme",
+            "aliases": [
+                "HOMME FEMME"
+            ]
+        },
+        "JIL": {
+            "name": "Jil Sander",
+            "aliases": [
+                "JIL SANDER"
+            ]
+        },
+        "JESUS": {
+            "name": "Jesus is King",
+            "aliases": [
+                "JESUS IS KING"
+            ]
+        },
+        "JWA": {
+            "name": "Jw Anderson",
+            "aliases": [
+                "JW ANDERSON"
+            ]
+        },
+        "KENZO": {
+            "name": "Kenzo",
+            "aliases": [
+                "K <STAR><STAR><STAR>O"
+            ]
+        },
+        "KANYE": {
+            "name": "Kanye West",
+            "aliases": [
+                "KANYE WEST"
+            ]
+        },
+        "LOEWE": {
+            "name": "Loewe",
+            "aliases": [
+                "L<STAR>E<STAR> <STAR>"
+            ]
+        },
+        "LUKE": {
+            "name": "Luke Vicious",
+            "aliases": [
+                "LUKE VICIOUS"
+            ]
+        },
+        "MONCLER": {
+            "name": "Moncler",
+            "aliases": [
+                "M<STAR><STAR>C<STAR><STAR>R"
+            ]
+        },
+        "SINCE": {
+            "name": "Missing Since",
+            "aliases": [
+                "MISSING SINCE"
+            ]
+        },
+        "KITSUNE": {
+            "name": "Maison Kitsune",
+            "aliases": [
+                "MAISON KITSUNE"
+            ]
+        },
+        "MARGIELA": {
+            "name": "Maison Margiela",
+            "aliases": [
+                "MAISON MARGIELA"
+            ]
+        },
+        "MIHARA": {
+            "name": "Maison Mihara",
+            "aliases": [
+                "MAISON MIHARA"
+            ]
+        },
+        "NO9": {
+            "name": "Maison No.9",
+            "aliases": [
+                "MAISON NO.9"
+            ]
+        },
+        "ROSE": {
+            "name": "Martine Rose",
+            "aliases": [
+                "MARTINE ROSE"
+            ]
+        },
+        "BURLON": {
+            "name": "Marcelo Burlon",
+            "aliases": [
+                "M<STAR><STAR>CE<STAR><STAR> <STAR><STAR>R<STAR><STAR>N"
+            ]
+        },
+        "JACOBS": {
+            "name": "Marc Jacobs",
+            "aliases": [
+                "MA<STAR><STAR> JA<STAR><STAR>BS"
+            ]
+        },
+        "RANCH": {
+            "name": "Mystery Ranch",
+            "aliases": [
+                "MYSTERY RANCH"
+            ]
+        },
+        "NEWERA": {
+            "name": "New Era",
+            "aliases": [
+                "NEW ERA"
+            ]
+        },
+        "BARRETT": {
+            "name": "Neil Barrett",
+            "aliases": [
+                "NEIL BARRETT"
+            ]
+        },
+        "NBA": {
+            "name": "NBA Basketball",
+            "aliases": [
+                "NBA BASKETBALL"
+            ]
+        },
+        "OFF": {
+            "name": "Off White",
+            "aliases": [
+                "O<STAR><STAR>F<STAR><STAR>F<STAR><STAR>"
+            ]
+        },
+        "LEGACY": {
+            "name": "Our Legacy",
+            "aliases": [
+                "OUR LEGACY"
+            ]
+        },
+        "PATA": {
+            "name": "Patagonia",
+            "aliases": [
+                "PA<STAR><STAR>O<STAR><STAR>A"
+            ]
+        },
+        "PA": {
+            "name": "Palm Angels",
+            "aliases": [
+                "P <STAR><STAR> <STAR> A <STAR><STAR> <STAR> S"
+            ]
+        },
+        "PALACE": {
+            "name": "Palace",
+            "aliases": [
+                "P<STAR>L<STAR><STAR>E"
+            ]
+        },
+        "TOUR": {
+            "name": "Purpose Tour",
+            "aliases": [
+                "PURPOSE TOUR"
+            ]
+        },
+        "PLENE": {
+            "name": "Philipp Plene",
+            "aliases": [
+                "PHILIPP PLENE"
+            ]
+        },
+        "SMITH": {
+            "name": "Paul Smith",
+            "aliases": [
+                "PAUL SMITH"
+            ]
+        },
+        "LAUREN": {
+            "name": "Ralph Lauren",
+            "aliases": [
+                "R<STAR><STAR><STAR>H L<STAR><STAR><STAR>EN"
+            ]
+        },
+        "RAF": {
+            "name": "Raf Simons",
+            "aliases": [
+                "RAF SIMONS"
+            ]
+        },
+        "STONE": {
+            "name": "Rolling Stone",
+            "aliases": [
+                "ROLLING STONE"
+            ]
+        },
+        "REMI": {
+            "name": "Remi Wolf",
+            "aliases": [
+                "REMI WOLF"
+            ]
+        },
+        "SUPR": {
+            "name": "Supreme",
+            "aliases": [
+                "S<STAR><STAR>R<STAR><STAR>E"
+            ]
+        },
+        "STI": {
+            "name": "Stone Island",
+            "aliases": [
+                "S <STAR>T<STAR>I"
+            ]
+        },
+        "SAINT": {
+            "name": "Saint Michael",
+            "aliases": [
+                "SAINT MICHAEL"
+            ]
+        },
+        "SCOTT": {
+            "name": "Scott Mescudi",
+            "aliases": [
+                "SCOTT MESCUDI"
+            ]
+        },
+        "YVES": {
+            "name": "Yves Saint Laurent",
+            "aliases": [
+                "SA<STAR><STAR>T LA<STAR><STAR>E<STAR><STAR>"
+            ]
+        },
+        "TRAVIS": {
+            "name": "Travis Scott",
+            "aliases": [
+                "TRAVIS SCOTT"
+            ]
+        },
+        "THOM": {
+            "name": "Thom Browne",
+            "aliases": [
+                "T<STAR><STAR>B"
+            ]
+        },
+        "TOMMY": {
+            "name": "Tommy Hilfiger",
+            "aliases": [
+                "T <STAR><STAR> <STAR> Y"
+            ]
+        },
+        "TAKA": {
+            "name": "Takashi Murakami",
+            "aliases": [
+                "TAKASHI MURAKAMI"
+            ]
+        },
+        "REDD": {
+            "name": "Trippie Redd",
+            "aliases": [
+                "TRIPPIE REDD"
+            ]
+        },
+        "FORD": {
+            "name": "Tom Ford",
+            "aliases": [
+                "TOM FORD"
+            ]
+        },
+        "ARMOUR": {
+            "name": "Under Armour",
+            "aliases": [
+                "U<STAR><STAR>E<STAR> A<STAR><STAR>O<STAR>R"
+            ]
+        },
+        "VUJA": {
+            "name": "Vuja De",
+            "aliases": [
+                "VUJA DE"
+            ]
+        },
+        "VINES": {
+            "name": "Vineyard Vines",
+            "aliases": [
+                "VINEYARD VINES"
+            ]
+        },
+        "MARIA": {
+            "name": "Wacko Maria",
+            "aliases": [
+                "WACKO MARIA"
+            ]
+        },
+        "WILD": {
+            "name": "Wild Things",
+            "aliases": [
+                "WILD THINGS"
+            ]
+        },
+        "KAI": {
+            "name": "Wai Kai",
+            "aliases": [
+                "WAI KAI"
+            ]
+        },
+        "YAMS": {
+            "name": "Yams Day",
+            "aliases": [
+                "YAMS DAY"
+            ]
+        },
+        "ZZEGNA": {
+            "name": "Zzegna",
+            "aliases": [
+                "Z<STAR><STAR>G<STAR>A"
+            ]
+        },
+        "OOI": {
+            "name": "5252 by O!Oi",
+            "aliases": [
+                "5252 BY O!Oi"
+            ]
+        },
+        "47BRAND": {
+            "name": "47 Brand",
+            "aliases": [
+                "47 BRAND"
+            ]
+        },
+        "ALYX9SM": {
+            "name": "1017 Alyx9sm",
+            "aliases": [
+                "1017 ALYX9SM"
+            ]
         }
     }
 }

@@ -27,6 +27,111 @@
                     "items": {
                         "type": ["T-Shirt", "Shorts"]
                     }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3456765",
+                    "name": "HOODIE",
+                    "items": {
+                        "type": "Hoodie"
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3456784",
+                    "name": "CAP",
+                    "items": {
+                        "type": "Hat"
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3456794",
+                    "name": "DOWN JACKET",
+                    "items": {
+                        "type": "Jacket"
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3476612",
+                    "name": "FLEECE",
+                    "items": {
+                        "type": "Fleece"
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3458602",
+                    "name": "JACKET",
+                    "items": {
+                        "type": "Jacket"
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3456798",
+                    "name": "LONG-SLEEVE",
+                    "items": {
+                        "type": "Long-Sleeve"
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3456782",
+                    "name": "POLO",
+                    "items": {
+                        "type": "Polo-Shirt"
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3718424",
+                    "name": "PANTIES",
+                    "items": {
+                        "type": "Underwear"
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3893419",
+                    "name": "SLIPPERS",
+                    "items": {
+                        "type": "Shoes"
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3456793",
+                    "name": "SWEATER",
+                    "items": {
+                        "type": "Sweater"
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3480980",
+                    "name": "SWEATER",
+                    "items": {
+                        "type": "Sweater"
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3495144",
+                    "name": "SOCKS",
+                    "items": {
+                        "type": "Socks"
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3458665",
+                    "name": "SCARF",
+                    "items": {
+                        "type": "Other"
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3456795",
+                    "name": "TROUSERS",
+                    "items": {
+                        "type": ["Pants", "Hoodie"]
+                    }
+                },
+                {
+                    "url": "https://husky-reps.x.yupoo.com/categories/3468238",
+                    "name": "VEST",
+                    "items": {
+                        "type": "Vest"
+                    }
                 }
             ]
         }
@@ -39,6 +144,7 @@
         "brand classification"
     ],
     "options": {
-        "image_load_time": 0.5
+        "image_load_time": 0.5,
+        "image_load_timeout": 10
     }
 }

@@ -19,7 +19,7 @@ class YupooScraper:
         f.close()
 
         for brand in db["brands"].keys():
-            for alias in db["brands"][brand]["aliases"] + [ brand ]:
+            for alias in db["brands"][brand]["aliases"]:
                 if self.emojis: # Using Emojis
                     for emoji in list(self.emojis.keys()):
                         if emoji in alias:
@@ -134,7 +134,6 @@ class YupooScraper:
                         i["brand"] = category["items"]["brand"]
 
                 scraped.append(i)
-                return scraped # DEBUG
 
         return scraped
     
@@ -143,43 +142,78 @@ class YupooScraper:
         parsed = []
         
         for item in scraped:
+            if item["id"] in self.db["known"]:
+                print("[Y] Item {} is already in our database!".format(item["id"]))
+                parsed.append(self.db["items"][item["id"]])
+                continue
             self.driver.get(item["link"])
             s = BeautifulSoup(self.driver.page_source, 'html.parser')
             
             name = s.find_all('span', { "class": "showalbumheader__gallerytitle" })[0].text
-            print("Name: {}".format(name))
             w2c = s.find_all('div', { "class": "showalbumheader__gallerysubtitle" })[0].find_all('a')[0].text
-            print("W2C: {}".format(w2c))
             iconID = s.find_all('img', { "class": "autocover" })[0]['src'].split("/")[-2]
-            print("iconID: {}".format(iconID))
 
             images = self.driver.find_elements(By.CLASS_NAME, "image__imagewrap")
             c = 1
-            for image in images:
-                if image.get_attribute("data-type") == "photo": # Click on the image and save it
-                    image.click()
+
+            images[0].click()
+            time.sleep(self.cfg["options"]["image_load_time"])
+            while True:
+                nextImg = self.driver.find_element(By.CLASS_NAME, "viewer__next")
+                if not nextImg:
+                    break
+                
+                viewer = self.driver.find_element(By.CLASS_NAME, "viewer__img")
+
+                loadts = time.time()
+                while "viewer__loading" in viewer.get_attribute("class").split(" "): # Wait for the image to load
                     time.sleep(self.cfg["options"]["image_load_time"])
                     viewer = self.driver.find_element(By.CLASS_NAME, "viewer__img")
-                    if viewer.get_attribute("src").split("/")[-2] == iconID: # If the image is used as an icon
-                        viewer.screenshot(item["iconPath"])
-                    viewer.screenshot(item["imagePath"]+"/"+str(c)+".png")
-                    self.driver.back()
-                    c += 1
+                    if loadts+self.cfg["options"]["image_load_timeout"] < time.time(): # Load timeout
+                        self.driver.back()
+                        print("Image load timeout exceeded {} seconds".format(self.cfg["options"]["image_load_timeout"]))
+                        break
+                if loadts+self.cfg["options"]["image_load_timeout"] < time.time():
+                    continue
+                if "displaynone" in viewer.get_attribute("class").split(" "): # If its a video, skip it
+                    try:
+                        nextImg.click()
+                    except:
+                        break
+                    time.sleep(self.cfg["options"]["image_load_time"])
+                    continue
+
+                if viewer.get_attribute("src").split("/")[-2] == iconID: # If the image is used as an icon
+                    viewer.screenshot(item["iconPath"])
+                viewer.screenshot(item["imagePath"]+"/"+str(c)+".png")
+
+                try:
+                    nextImg.click()
+                except:
+                    break
+                time.sleep(self.cfg["options"]["image_load_time"])
+                c += 1
             
             i = { # FINAL ITEM SCRTUCTURE
                 "name": "",
-                "price": (0, 0), # Min value and Max value
+                "desc": "",
+                "price": [], # (Min value, Max value)
                 "basePrice": {
-                    "yuan": 0,
-                    "euro": 0
+                    "yuan": [],
+                    "euro": []
                 },
-                "brand": "",
-                "type": "",
+                "brand": [],
+                "type": [],
+                "w2c": w2c,
+                "id": item["id"]
             }
             
             if "items" in category.keys(): # Applying prespecified info
                 if "type" in category["items"].keys():
-                    i["type"] = category["items"]["type"]
+                    if type(category["items"]["type"]) is str:
+                        i["type"] = [ category["items"]["type"] ]
+                    else:
+                        i["type"] = category["items"]["type"]
                 if "brand" in category["items"].keys():
                     i["brand"] = category["items"]["brand"]
 
@@ -192,44 +226,66 @@ class YupooScraper:
                 if "￥" not in name:
                     print("[Y] ! Warning: Didn't find YUAN in item named '{}'\n >> Skipping item...".format(name))
                     continue
+                if name.count("￥") > len(nums):
+                    print("[Y] ! Warning: There are {} prices in item named '{}' but only {} numbers\n >> Skipping item...".format(name.count("￥"), name, len(nums)))
+                    continue
                 
                 # NAME PARSING
-                i["name"] = name.split("(")[0].replace(".", "").replace("~", "").replace(",", "")
+                i["name"] = name.split("（")[0].split("(")[0].replace(".", "").replace("~", "").replace(",", "")
                 i["name"] = i["name"][i["name"].index(str(nums[0]))+len(str(nums[0])):]
+
+                # DESCRIPTION PARSING
+                if "（" in name:
+                    i["desc"] = name.split("（")[1].replace("）", "")
+                elif "(" in name:
+                    i["desc"] = name.split("(")[1].replace(")", "")
+                else:
+                    i["desc"] = None
+                if i["desc"][-4:] == "phot":
+                    i["desc"] += "o"
                 
                 # BRAND DECODING + PARSING
-                for brand in list(self.brands.keys()) + [ "" ]:
-                    if brand in i["name"]:
-                        break
-                if brand == "": # Brand not found in name of the item -> skipping...
-                    print("[Y] ! Warning: No brand was found in item '{}'\n > Skipping item...".format(i["name"]))
-                    continue
-                i["brand"] = self.brands[brand]
+                foundBrands = []
+                for brand in list(self.brands.keys()):
+                    if brand in i["name"]: # Brand found in decoding table
+                        foundBrands.append(brand)
+                        i["brand"].append(self.brands[brand])
+                        i["name"] = i["name"].replace(brand, "") # Remove the brand from the item name
+                
+                if len(foundBrands) < i["name"].upper().count(" X ") + 1: # If there were brands that were not found in the decoding table
+                    for namePart in i["name"].split(" X "):
+                        for idx in range(len(namePart)):
+                            if namePart[idx].isalpha():
+                                break
+                        namePart = namePart[idx:].split(" ")[0]
+                        namePart = namePart[0].upper() + namePart[1:].lower()
+                        i["brand"].append(namePart)
                 
                 # NAME PARSING - REMOVING SPACES AFTER BRAND DECODING
-                i["name"] = i["name"].replace(brand, "") # Removing brand from item name
                 while i["name"][0] == " ": # Remove additional spaces at the start
                     i["name"] = i["name"][1:]
                 while i["name"][-1] == " ": # Remove additional spaces at the end
                     i["name"] = i["name"][:-1]
 
                 # BASE PRICE PARSING
-                i["basePrice"]["yuan"] = int(nums[0])
-                i["basePrice"]["eur"] = round(i["basePrice"]["yuan"]/self.conversionRate["yuanToEur"], 2)
+                for x in range(name.count("￥")):
+                    i["basePrice"]["yuan"].append( int(nums[x]) )
+                    i["basePrice"]["euro"].append( round(i["basePrice"]["yuan"][x]/self.conversionRate["yuanToEuro"], 2) )
                 
                 # PRICE PARSING
-                rounded = round(i["basePrice"]["eur"]/5)*5
-                i["price"] = (rounded, rounded+(5*(math.floor(rounded/50) + 1)))
+                for basePrice in i["basePrice"]["euro"]:
+                    rounded = round(basePrice/5)*5
+                    i["price"].append( (rounded, rounded+(5*(math.floor(rounded/50) + 1))) )
                 
-                # TODO: TYPE PARSING (NOT REQUIRED WITH HUSKY REPS)
-                print(i)
-                self.driver.close()
-                exit()
+                # TYPE PARSING (FULL DETECTION IS NOT REQUIRED WITH HUSKY REPS (hopefully))
+                if len(i["type"]) > 1:
+                    i["type"] = i["type"][:name.count("￥")]
+                
+                print("[Y] DEBUG ITEM PARSING OUTPUT:\n{}".format(json.dumps(i, indent=2)))
+                print("[Y] Parsed an {} {} selling for ￥ {}".format(i["brand"], i["type"], i["basePrice"]["yuan"]))
 
             parsed.append(i)
-
-            self.driver.close()
-            exit()
+        return parsed
 
     def scrape(self, seller, url):
         print("[Y] Scraping '{}'".format(url))
@@ -238,3 +294,5 @@ class YupooScraper:
         for cat in categories:
             data = self.scrapeCategory(seller, cat)
             parsed = self.parseCategory(seller, cat, data)
+            items += parsed
+        return items
