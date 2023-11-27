@@ -23,7 +23,9 @@ class YupooScraper:
                 if self.emojis: # Using Emojis
                     for emoji in list(self.emojis.keys()):
                         if emoji in alias:
-                            alias.replace(emoji, self.emojis[emoji])
+                            alias = alias.replace(emoji, self.emojis[emoji])
+                else:
+                    print("[!] Warning: Not using any emojis for the brand decoding process!")
                 brand_db[alias] = db["brands"][brand]["name"]
         
         return brand_db
@@ -205,7 +207,8 @@ class YupooScraper:
                 "brand": [],
                 "type": [],
                 "w2c": w2c,
-                "id": item["id"]
+                "id": item["id"],
+                "seller": seller["name"].lower().replace(" ", "_")
             }
             
             if "items" in category.keys(): # Applying prespecified info
@@ -245,11 +248,18 @@ class YupooScraper:
                     i["desc"] += "o"
                 
                 # BRAND DECODING + PARSING
+                if '⭐' in name:
+                    print("[⭐] Star found in item name")
+                else:
+                    print("[⭐] Star NOT found in item name")
                 foundBrands = []
+                print("[DEBUG] Brand DB: {}".format(json.dumps(self.brands)))
                 for brand in list(self.brands.keys()):
                     if brand in i["name"]: # Brand found in decoding table
+                        print("[⭐] Brand was FOUND in the database!")
                         foundBrands.append(brand)
                         i["brand"].append(self.brands[brand])
+                        print("[D] Brand: {}, BrandName: {}".format(brand, self.brands[brand]))
                         i["name"] = i["name"].replace(brand, "") # Remove the brand from the item name
                 
                 if len(foundBrands) < i["name"].upper().count(" X ") + 1: # If there were brands that were not found in the decoding table
