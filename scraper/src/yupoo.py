@@ -248,18 +248,11 @@ class YupooScraper:
                     i["desc"] += "o"
                 
                 # BRAND DECODING + PARSING
-                if '⭐' in name:
-                    print("[⭐] Star found in item name")
-                else:
-                    print("[⭐] Star NOT found in item name")
                 foundBrands = []
-                print("[DEBUG] Brand DB: {}".format(json.dumps(self.brands)))
                 for brand in list(self.brands.keys()):
                     if brand in i["name"]: # Brand found in decoding table
-                        print("[⭐] Brand was FOUND in the database!")
                         foundBrands.append(brand)
                         i["brand"].append(self.brands[brand])
-                        print("[D] Brand: {}, BrandName: {}".format(brand, self.brands[brand]))
                         i["name"] = i["name"].replace(brand, "") # Remove the brand from the item name
                 
                 if len(foundBrands) < i["name"].upper().count(" X ") + 1: # If there were brands that were not found in the decoding table

@@ -6,12 +6,6 @@
                 "L<STAR>"
             ]
         },
-        "FOG": {
-            "name": "Fear Of God",
-            "aliases": [
-                "FOG"
-            ]
-        },
         "TNF": {
             "name": "The North Face",
             "aliases": [
@@ -592,6 +586,30 @@
             "name": "1017 Alyx9sm",
             "aliases": [
                 "1017 ALYX9SM"
+            ]
+        },
+        "GUCCI": {
+            "name": "Gucci",
+            "aliases": [
+                "GI "
+            ]
+        },
+        "ACG": {
+            "name": "Nike",
+            "aliases": [
+                "ACG "
+            ]
+        },
+        "FOG": {
+            "name": "Fear Of God",
+            "aliases": [
+                "FOG "
+            ]
+        },
+        "NIKE": {
+            "name": "Nike",
+            "aliases": [
+                "NK "
             ]
         }
     }
