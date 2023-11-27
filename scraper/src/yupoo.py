@@ -244,8 +244,9 @@ class YupooScraper:
                     i["desc"] = name.split("(")[1].replace(")", "")
                 else:
                     i["desc"] = None
-                if i["desc"][-4:] == "phot":
-                    i["desc"] += "o"
+                if i["desc"] is not None:
+                    if i["desc"][-4:] == "phot":
+                        i["desc"] += "o"
                 
                 # BRAND DECODING + PARSING
                 foundBrands = []
