@@ -261,9 +261,10 @@ class YupooScraper:
                         for idx in range(len(namePart)):
                             if namePart[idx].isalpha():
                                 break
-                        namePart = namePart[idx:].split(" ")[0]
-                        namePart = namePart[0].upper() + namePart[1:].lower()
-                        i["brand"].append(namePart)
+                        if len(namePart) > 0:
+                            namePart = namePart[idx:].split(" ")[0]
+                            namePart = namePart[0].upper() + namePart[1:].lower()
+                            i["brand"].append(namePart)
                 
                 # NAME PARSING - REMOVING SPACES AFTER BRAND DECODING
                 while i["name"][0] == " ": # Remove additional spaces at the start
