@@ -1,0 +1,18 @@
+{
+    "HOODIE": "Hoodie",
+    "T-SHIRT": "T-Shirt",
+    "SHORTS": "Shorts",
+    "BAG": "Bag",
+    "CAP": "Hat",
+    "JACKET": "Jacket",
+    "FLEECE": "Thin-Jacket",
+    "POLO": "Polo-Shirt",
+    "PANTIES": "Underwear",
+    "SLIPPERS": "Shoes",
+    "SWEATER": "Sweater",
+    "SOCKS": "Socks",
+    "SCARF": "Other",
+    "VEST": "Vest",
+    "TROUSERS": "Pants",
+    "LONG-SLEEVE": "Long-Shirt"
+}

@@ -10,7 +10,14 @@ class YupooScraper:
         self.driver = driver
         self.conversionRate = self.calcYuan()
         self.brands = self.loadBrandDB()
+        self.types = self.loadTypeDB()
     
+    def loadTypeDB(self):
+        f = open("./data/type_db.json", 'r')
+        type_db = json.loads(f.read())
+        f.close()
+        return type_db
+
     def loadBrandDB(self):
         brand_db = {}
         
@@ -221,7 +228,7 @@ class YupooScraper:
                     if "brand" in category["items"].keys():
                         i["brand"] = category["items"]["brand"]
 
-                if "husky" in seller["name"] or True: # DEFAULT NAME PARSING ROUTE
+                if "husky" in seller["name"] or True: # 'or True' ==> DEFAULT NAME PARSING ROUTE
                     # SKIPPING ITEMS WE CANNOT PARSE
                     nums = re.findall(r'\d+', name)
                     if len(nums) == 0:
@@ -235,8 +242,22 @@ class YupooScraper:
                         continue
                     
                     # NAME PARSING
-                    i["name"] = name.split("（")[0].split("(")[0].replace(".", "").replace("~", "").replace(",", "")
+                    i["name"] = name.split("（")[0].split("(")[0].replace(".", "").replace("~", "").replace(",", "").replace(self.emojis["<FIRE>"], "")
                     i["name"] = i["name"][i["name"].index(str(nums[0]))+len(str(nums[0])):]
+
+                    # TYPE PARSING
+                    detected = [] # !
+                    for t in list(self.types.keys()):
+                        if t in name and t not in detected:
+                            detected.append(t)
+                    if "items" in category.keys() and "type" in category["items"].keys(): # We can modify predetermined item types here
+                        if len(detected) > 0:
+                            i["type"] = []
+                            for t in detected:
+                                i["type"].append(self.types[t])
+                    else:
+                        for t in detected:
+                            i["type"].append(self.types[t])
 
                     # DESCRIPTION PARSING
                     if "（" in name:

@@ -12,7 +12,8 @@ if not config:
 
 ## ASCII EMOJIS DECODING ##
 emoji_db = {
-    "<STAR>": '⭐'
+    "<STAR>": '⭐',
+    "<FIRE>": '🔥'
 }
 
 ## STARTING SCRAPER ##
