@@ -24,3 +24,5 @@ yarn-error.log*
 
 scraper/data/images
 scraper/data/db.json
+
+scraper/src/__pycache__
