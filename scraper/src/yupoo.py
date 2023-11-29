@@ -118,19 +118,9 @@ class YupooScraper:
             for item in items:
                 link = category["url"].split("/categories")[0] + item.find_all('a', href=True)[0]['href']
                 itemID = link.split("/")[-1].split("?")[0] + "_" + link.split("=")[-1]
-                iconPath = "./data/images/"+seller["name"].replace(" ", "_").lower()+"/"+itemID+"/icon.png"
                 imagePath = "./data/images/"+seller["name"].replace(" ", "_").lower()+"/"+itemID
 
-                # Create directories for the item imgs
-                if not os.path.exists("./data/images"):
-                    os.mkdir("./data/images")
-                if not os.path.exists("./data/images/"+seller["name"].replace(" ", "_").lower()):
-                    os.mkdir("./data/images/"+seller["name"].replace(" ", "_").lower())
-                if not os.path.exists("./data/images/"+seller["name"].replace(" ", "_").lower()+"/"+itemID):
-                    os.mkdir("./data/images/"+seller["name"].replace(" ", "_").lower()+"/"+itemID)
-
                 i = {
-                    "iconPath": iconPath,
                     "imagePath": imagePath,
                     "link": link,
                     "id": itemID,
@@ -168,6 +158,8 @@ class YupooScraper:
 
                 images[0].click()
                 time.sleep(self.cfg["options"]["image_load_time"])
+                sizeChart = False
+                iconImg = False
                 while True:
                     nextImg = self.driver.find_element(By.CLASS_NAME, "viewer__next")
                     if not nextImg:
@@ -194,8 +186,13 @@ class YupooScraper:
                         continue
 
                     if viewer.get_attribute("src").split("/")[-2] == iconID: # If the image is used as an icon
-                        viewer.screenshot(item["iconPath"])
-                    viewer.screenshot(item["imagePath"]+"/"+str(c)+".png")
+                        viewer.screenshot(item["imagePath"]+"_icon.png")
+                        iconImg = True
+                    elif not sizeChart:
+                        viewer.screenshot(item["imagePath"]+"_size.png")
+                        sizeChart = True
+                    if sizeChart and iconImg:
+                        break
 
                     try:
                         nextImg.click()
@@ -317,7 +314,11 @@ class YupooScraper:
         return parsed
 
     def scrape(self, seller, url):
+        # Create directories for the item imgs
+        if not os.path.exists("./data/images"):
+            os.mkdir("./data/images")
         print("[Y] Scraping '{}'".format(url))
+        
         categories = self.loadCategories(seller, url)
         items = []
         for cat in categories:
