@@ -38,7 +38,7 @@ class Scraper:
         db = json.loads(f.read())
         f.close()
 
-        shopID = shop.split(".")[0].replace("https://", "").replace("http://", "")
+        shopID = shop.split(".")[0].replace("https://", "").replace("http://", "").replace("-", "_")
 
         if shopID not in db["shops"]:
             db["shops"].append(shopID)
