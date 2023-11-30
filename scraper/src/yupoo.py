@@ -154,52 +154,34 @@ class YupooScraper:
                 iconID = s.find_all('img', { "class": "autocover" })[0]['src'].split("/")[-2]
 
                 images = self.driver.find_elements(By.CLASS_NAME, "image__imagewrap")
-                c = 1
 
-                images[0].click()
-                time.sleep(self.cfg["options"]["image_load_time"])
-                sizeChart = False
-                iconImg = False
-                while True:
-                    nextImg = self.driver.find_element(By.CLASS_NAME, "viewer__next")
-                    if not nextImg:
-                        break
-                    
-                    viewer = self.driver.find_element(By.CLASS_NAME, "viewer__img")
+                if len(images) == 0:
+                    print("[Y] ! Warning: No images found on '{}'\n >> Skipping item...".format(item["link"]))
+                    continue
 
-                    loadts = time.time()
-                    while "viewer__loading" in viewer.get_attribute("class").split(" "): # Wait for the image to load
-                        time.sleep(self.cfg["options"]["image_load_time"])
+                for image in images:
+                    if image.get_attribute("data-type") == "photo":
+                        if images.index(image) == 0:
+                            fileName = "_size.png"
+                        elif image.get_attribute("src").split("/")[-2] == iconID:
+                            fileName = "_icon.png"
+                        else:
+                            continue
+                        
+                        loadts = time.time()
+                        image.click()
+                        
                         viewer = self.driver.find_element(By.CLASS_NAME, "viewer__img")
-                        if loadts+self.cfg["options"]["image_load_timeout"] < time.time(): # Load timeout
-                            self.driver.back()
-                            print("Image load timeout exceeded {} seconds".format(self.cfg["options"]["image_load_timeout"]))
-                            break
-                    if loadts+self.cfg["options"]["image_load_timeout"] < time.time():
-                        continue
-                    if "displaynone" in viewer.get_attribute("class").split(" "): # If its a video, skip it
-                        try:
-                            nextImg.click()
-                        except:
-                            break
-                        time.sleep(self.cfg["options"]["image_load_time"])
-                        continue
-
-                    if viewer.get_attribute("src").split("/")[-2] == iconID: # If the image is used as an icon
-                        viewer.screenshot(item["imagePath"]+"_icon.png")
-                        iconImg = True
-                    elif not sizeChart:
-                        viewer.screenshot(item["imagePath"]+"_size.png")
-                        sizeChart = True
-                    if sizeChart and iconImg:
-                        break
-
-                    try:
-                        nextImg.click()
-                    except:
-                        break
-                    time.sleep(self.cfg["options"]["image_load_time"])
-                    c += 1
+                        while "viewer__loading" in viewer.get_attribute("class").split(" "): # Wait for the image to load
+                            time.sleep(self.cfg["options"]["image_load_time"])
+                            viewer = self.driver.find_element(By.CLASS_NAME, "viewer__img")
+                            if loadts+self.cfg["options"]["image_load_timeout"] < time.time(): # Load timeout
+                                self.driver.back()
+                                print("[Y] ! Warning: Image load timeout exceeded {} seconds\n >> Skipping IMG...".format(self.cfg["options"]["image_load_timeout"]))
+                                break
+                        
+                        viewer.screenshot(item["imagePath"]+fileName)
+                        self.driver.back()
                 
                 i = { # FINAL ITEM SCRTUCTURE
                     "name": "",
@@ -305,7 +287,6 @@ class YupooScraper:
                     if len(i["type"]) > 1:
                         i["type"] = i["type"][:name.count("￥")]
                     
-                    print("[Y] DEBUG ITEM PARSING OUTPUT:\n{}".format(json.dumps(i, indent=2)))
                     print("[Y] Parsed an {} {} selling for ￥ {}".format(i["brand"], i["type"], i["basePrice"]["yuan"]))
 
                 parsed.append(i)
