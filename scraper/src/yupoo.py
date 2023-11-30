@@ -194,6 +194,7 @@ class YupooScraper:
                     "brand": [],
                     "type": [],
                     "w2c": w2c,
+                    "yupoo": item["link"],
                     "id": item["id"],
                     "seller": seller["name"].lower().replace(" ", "_")
                 }
