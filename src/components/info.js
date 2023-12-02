@@ -8,7 +8,7 @@ const InfoCards = () => {
         <div className="infoCards">
             <div className="header">
                 <h1>
-                    Nájdeš tu&nbsp;<span class="typewriter"></span>
+                    Nájdeš tu&nbsp;<span className="typewriter"></span>
                 </h1>
                 <h1>Informácie o Fantázia Reps</h1>
                 <p>Toto je približný opis postupu, ktorého sa držím pri objednávkach.</p>

@@ -1,9 +1,13 @@
 import React from "react";
+import Shop from "../shop/shop";
+import Navbar from "./navbar";
+import '../shop/style/shop.css';
 
 const Itemy = () => {
     return (
-        <div>
-            <h1>Itemy</h1>
+        <div className="shop">
+            <Navbar active="itemy" />
+            <Shop />
         </div>
     );
 };

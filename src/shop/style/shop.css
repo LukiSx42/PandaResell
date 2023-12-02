@@ -1,0 +1,36 @@
+.shop {
+    background: #E2CFEA;
+    margin: 0;
+    padding: 0;
+    color: #102B3F;
+    height: 100%;
+}
+
+.shopBlock {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.split {
+    display: flex;
+}
+
+.filters {
+    float: left;
+    width: max(10%, 110px);
+    margin-left: 1vw;
+    border-right: 5px solid #102B3F;
+    border-radius: 4px;
+    margin-bottom: 0.5vw;
+}
+
+.page {
+    float: left;
+    width: 90%;
+    margin-left: 1vw;
+}
+
+hr {
+    border: 5px solid #102B3F;
+    border-radius: 4px;
+}

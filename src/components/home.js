@@ -13,10 +13,10 @@ function HomeCards() {
 
   return (
     <div className="cards">
-      <div class="container">
-        <div class="box">
+      <div className="container">
+        <div className="box">
           <span></span>
-          <div class="content">
+          <div className="content">
             <h2>Info 📖</h2>
             <p style={{ fontFamily: 'Helvetica'}}>
               Rýchly guide/tutorial ako si vybrať itemy, ako objednať, aký je pustup, kedy dostaneš itemy...
@@ -24,9 +24,9 @@ function HomeCards() {
             <a href="/info">📖 📖 📖</a>
           </div>
         </div>
-        <div class="box">
+        <div className="box">
           <span></span>
-          <div class="content">
+          <div className="content">
             <h2>Itemy 🔥</h2>
             <p style={{ fontFamily: 'Helvetica'}}>
               Samotný shop kde vieš prehľadávať itemy, sortovať podľa typu itemov / značky / kvality
@@ -34,9 +34,9 @@ function HomeCards() {
             <a href="#" onClick={ scrollToItems }>🔥 🔥 🔥</a>
           </div>
         </div>
-        <div class="box">
+        <div className="box">
           <span></span>
-          <div class="content">
+          <div className="content">
             <h2>Kontakt 📞</h2>
             <p style={{ fontFamily: 'Helvetica'}}>
               Nenašiel si to čo si hladal?

@@ -1,0 +1,12 @@
+{
+    "filters": [
+        {
+            "name": "Značky",
+            "id": "brands"
+        },
+        {
+            "name": "Typy",
+            "id": "types"
+        }
+    ]
+}

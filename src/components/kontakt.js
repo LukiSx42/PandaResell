@@ -6,20 +6,20 @@ import BottomBar from './bottom';
 const KontaktCard = () => {
     return (
         <div className="id-card">
-            <div class="card">
-                <div class="img-avatar">
+            <div className="card">
+                <div className="img-avatar">
                     <img src="/kontakt_avatar.png" />
                 </div>
-                <div class="card-text">
-                    <div class="portada">
+                <div className="card-text">
+                    <div className="portada">
                         <img src="/kontakt_background.png" />
                     </div>
-                    <div class="title-total">   
-                        <div class="title">
+                    <div className="title-total">   
+                        <div className="title">
                             Programátor / Reseller / Gamer
                         </div>
                         <h2>LukiS</h2>
-                        <div class="desc">
+                        <div className="desc">
                             Už to bude 10 rokov čo programujem,
                             aktuálne chodím na vysokú školu (aplikovaná informatika).
                             Resellujem repy a aktuálne hrávam hlavne Apex Legends,

@@ -26,3 +26,7 @@ scraper/data/images
 scraper/data/db.json
 
 scraper/src/__pycache__
+
+src/config/db.json
+
+public/images/
