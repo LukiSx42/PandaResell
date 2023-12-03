@@ -16,7 +16,8 @@
 
 .dropdownSort nav {
   width : 300px; 
-  background: #d9d9d9;
+  background: #E2CFEA;
+  border-radius: 0 0 25px 25px;
   margin : 40px auto; 
 }
 

@@ -64,21 +64,24 @@ class PageView extends React.Component {
             items = this.randomSort(items);
         } else if (this.props.sorting.id == "rich") {
             items.sort((a, b) => {
-                return b.basePrice.yuan - a.basePrice.yuan;
+                return b.basePrice.yuan[0] - a.basePrice.yuan[0];
             });
         } else if (this.props.sorting.id == "broke") {
             items.sort((a, b) => {
-                return a.basePrice.yuan - b.basePrice.yuan;
+                return a.basePrice.yuan[0] - b.basePrice.yuan[0];
             });
         }
+        
+        console.log(items);
 
         let i = 0;
         items.forEach(item => {
-            if (i >= 25 * (this.props.currentPage+1) && i < 25 * (this.props.currentPage+2)) {
+            if (i >= 25 * (this.props.currentPage) && i < 25 * (this.props.currentPage+1)) {
                 page.push(<ItemOnPage item={ item } />);
             }
             i++;
         });
+
         
         let lenght = 0;
         page.forEach(item => lenght++);
