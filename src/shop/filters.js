@@ -16,17 +16,19 @@ function Filters(props) {
     return (
         <div className="filters">
             <h2>🔍 Filtre</h2>
-            <div>
-                <div className="box">
-                    <input id="one" type="checkbox" />
-                    <span className="check"></span>
-                    <label for="one">Check me.</label>
-                </div>
-                <div className="box">
-                    <input id="two" type="checkbox" />
-                    <span className="check"></span>
-                    <label for="two">Hey! Check me too.</label>
-                </div>
+            <div class="container">
+                <label for="checkbox-1">
+                    <input type="checkbox" id="checkbox-1" name="checkbox-1"/>
+                    🥕 Carrots
+                </label>
+                <label for="checkbox-2">
+                    <input type="checkbox" id="checkbox-2" name="checkbox-2"/>
+                    🍎 Apples 
+                </label>
+                <label for="checkbox-3">
+                    <input type="checkbox" id="checkbox-3" name="checkbox-3"/>
+                🍐 Pears
+                </label>
             </div>
         </div>
     );

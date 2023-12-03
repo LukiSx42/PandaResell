@@ -6,6 +6,9 @@ import ItemOnPage from './item';
 class PageView extends React.Component {
     constructor(props) {
         super(props);
+        let c = 0;
+        this.parsePages().forEach(item => { c++; })
+        this.props.pageUpdate(c);
     }
 
     parsePages() {
@@ -32,28 +35,60 @@ class PageView extends React.Component {
         return pages;
     }
 
+    randomSort(array) {
+        let currentIndex = array.length,  randomIndex;
+      
+        while (currentIndex > 0) {
+      
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex--;
+      
+          [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        }
+      
+        return array;
+    }
+
     renderPage(displayPage) {
         console.log("RENDERING PAGE!");
         let c = 0;
         let page = [];
+        let items = [];
         ItemDB.shops.forEach(shop => {
             ItemDB[shop].forEach(item => {
-                if (c >= 25 * (displayPage+1) && c < 25 * (displayPage+2)) {
-                    page.push(<ItemOnPage item={ item } currPage={ this.props.currentPage } />);
-                }
-                c++;
+                items.push(item);
             });
         });
+
+        if (this.props.sorting.id == "random") {
+            items = this.randomSort(items);
+        } else if (this.props.sorting.id == "rich") {
+            items.sort((a, b) => {
+                return b.basePrice.yuan - a.basePrice.yuan;
+            });
+        } else if (this.props.sorting.id == "broke") {
+            items.sort((a, b) => {
+                return a.basePrice.yuan - b.basePrice.yuan;
+            });
+        }
+
+        let i = 0;
+        items.forEach(item => {
+            if (i >= 25 * (this.props.currentPage+1) && i < 25 * (this.props.currentPage+2)) {
+                page.push(<ItemOnPage item={ item } />);
+            }
+            i++;
+        });
         
-        if (page.lenght == 0) {
+        let lenght = 0;
+        page.forEach(item => lenght++);
+        if (lenght == 0) {
             return (
-                <div>
+                <div className="error">
                     <h1>⛔ Nenašli sa žaidne itemy ⛔</h1>
                 </div>
             );
         }
-
-        console.log(page);
 
         return <div>{page}</div>;
     }

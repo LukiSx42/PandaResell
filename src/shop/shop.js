@@ -15,13 +15,18 @@ class Shop extends React.Component {
             currentPage: 0,
             pageCount: 1,
             maxItems: 25,
-            filters: []
+            filters: [],
+            sorting: {
+                "name": "Základné Zoradenie",
+                "id": "default"
+            }
         }
 
         this.pageUpdate = this.pageUpdate.bind(this);
         this.nextPage = this.nextPage.bind(this);
         this.prevPage = this.prevPage.bind(this);
         this.changeFilters = this.changeFilters.bind(this);
+        this.changeSort = this.changeSort.bind(this);
     }
 
     changeFilters(updated) {
@@ -30,9 +35,15 @@ class Shop extends React.Component {
         });
     }
 
+    changeSort(sort) {
+        this.setState({
+            sorting: sort
+        });
+    }
+
     pageUpdate(maxCount) {
         this.setState({
-            maxItems: maxCount
+            pageCount: maxCount
         });
     }
 
@@ -51,13 +62,13 @@ class Shop extends React.Component {
     render() {
         return (
             <div className="shopBlock">
-                <TopBar filters={ this.state.filters } />
+                <TopBar filters={ this.state.filters } sorting={ this.state.sorting } changeSort={ this.changeSort } />
                 <hr />
                 <div className="split">
-                    <Filters cfg={ ShopConfig.filters } active={ this.state.filters } />
-                    <PageView filters={ this.state.filters } currentPage={ this.state.currentPage } pageUpdate={ this.pageUpdate }/>
+                    <Filters cfg={ ShopConfig.filters } active={ this.state.filters } changeFilters={ this.changeFilters } />
+                    <PageView filters={ this.state.filters } currentPage={ this.state.currentPage } pageUpdate={ this.pageUpdate } sorting={ this.state.sorting } />
                 </div>
-                <PageNav current={ this.state.currentPage } max={ this.state.maxItems } nextPage={ this.nextPage } prevPage={ this.prevPage } />
+                <PageNav current={ this.state.currentPage } max={ this.state.pageCount } nextPage={ this.nextPage } prevPage={ this.prevPage } />
                 <Bottom />
             </div>
         );
