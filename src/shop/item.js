@@ -1,62 +1,10 @@
+import emojiFromType from "./scripts/emojiFromType";
 import React from "react";
 import './style/item.css';
 
 class ItemOnPage extends React.Component {
     constructor(props) {
         super(props);
-    }
-
-    getTypeEmoji() { // TODO: Return an emoji for each item type
-        let emoji = "";
-        if (this.props.item.type.includes("T-Shirt")) {
-            emoji += "👕";
-        }
-        if (this.props.item.type.includes("Shorts")) {
-            emoji += "🩳";
-        } 
-        if (this.props.item.type.includes("Hoodie")) {
-            emoji += "👘";
-        }
-        if (this.props.item.type.includes("Hat")) {
-            emoji += "🎩";
-        }
-        if (this.props.item.type.includes("Jacket")) {
-            emoji += "🧥";
-        }
-        if (this.props.item.type.includes("Thin-Jacket")) {
-            emoji += "🥼";
-        }
-        if (this.props.item.type.includes("Long-Shirt")) {
-            emoji += "👕";
-        }
-        if (this.props.item.type.includes("Polo-Shirt")) {
-            emoji += "👔";
-        }
-        if (this.props.item.type.includes("Underwear")) {
-            emoji += "🩲";
-        }
-        if (this.props.item.type.includes("Shoes")) {
-            emoji += "👟";
-        }
-        if (this.props.item.type.includes("Sweater")) {
-            emoji += "👘";
-        }
-        if (this.props.item.type.includes("Socks")) {
-            emoji += "🧦";
-        }
-        if (this.props.item.type.includes("Other")) {
-            emoji += "💎";
-        }
-        if (this.props.item.type.includes("Pants")) {
-            emoji += "👖";
-        }
-        if (this.props.item.type.includes("Vest")) {
-            emoji += "🦺";
-        }
-        if (this.props.item.type.includes("Bag")) {
-            emoji += "🎒";
-        }
-        return emoji;
     }
 
     renderSeller() {
@@ -73,7 +21,7 @@ class ItemOnPage extends React.Component {
                 <div className="nft">
                     <div className='nftMain'>
                         <img className='tokenImage' src={"/images/" + this.props.item.seller + "/" + this.props.item.id +"_icon.png" } alt="Item" />
-                        <h2>{ this.getTypeEmoji() } { (this.props.item.brand[0].toUpperCase() != this.props.item.type[0].toUpperCase()) ? this.props.item.brand.join(" ").toUpperCase() : "???" }</h2>
+                        <h2>{ emojiFromType(this.props.item.type) } { (this.props.item.brand[0].toUpperCase() != this.props.item.type[0].toUpperCase()) ? this.props.item.brand.join(" ").toUpperCase() : "???" }</h2>
                         <p className='description'>{ this.props.item.name }</p>
                         <div className='tokenInfo'>
                             <div className="price">

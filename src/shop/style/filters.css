@@ -1,14 +1,15 @@
 .filters h2 {
-    margin-left: 1vw;
-    background-color: rgba(98, 71, 170, 0.25);
-    color: #102B3F;
-    border-radius: 25px;
-    padding: 2px;
-    width: 110px;
+  background-color: rgba(98, 71, 170, 0.25);
+  color: #102B3F;
+  border-radius: 25px;
+  padding: 2px;
+  width: 150px;
+  font-size: 32px;
+  margin-top: 3px;
 }
 
 .filters ul {
-    margin-left: 1vw;
+  margin-left: 1vw;
 }
 
 @font-face {
@@ -267,6 +268,7 @@
     transition: 0.2s;
     border-radius: 25px;
     margin-left: 0.6vw;
+    margin-bottom: 20px;
   }
   
   .brands-btn:hover {

@@ -107,6 +107,8 @@ class PageView extends React.Component {
             this.props.updateBrands(this.findAllBrands(items)); // Brand update
             
             this.props.pageUpdate(Math.ceil(i/25)); // Page update
+
+            this.props.updateItemCount(i); // Item Count update
         }
 
         return <div>{page}</div>;

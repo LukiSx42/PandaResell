@@ -1,6 +1,7 @@
-import React from "react";
-import './style/filters.css';
+import emojiFromType from "./scripts/emojiFromType";
 import Popup from 'reactjs-popup';
+import './style/filters.css';
+import React from "react";
 
 function renderBrands(brands) {
     console.log(brands);
@@ -12,28 +13,32 @@ function renderBrands(brands) {
     );
 }
 
+function renderTypes(types) {
+    let filters = [];
+
+    types.forEach(type => {
+        filters.push(
+            <label for="checkbox-2">
+                <input type="checkbox" id="checkbox-2" name="checkbox-2"/>
+                { emojiFromType([type]) + type }
+            </label>
+        );
+    })
+
+    return filters;
+}
+
 function Filters(props) {
     return (
         <div className="filters">
             <h2>🔍 Filtre</h2>
+            <Popup trigger={ <button className="brands-btn" style={{"--clr": "#0FF0FC"}}><span>💎 Značky</span><i></i></button> } position="right center">
+                <div className="brands-container">
+                    { renderBrands(props.brands) }
+                </div>
+            </Popup>
             <div class="filters-container">
-                <Popup trigger={ <button className="brands-btn" style={{"--clr": "#0FF0FC"}}><span>💎 Značky</span><i></i></button> } position="right center">
-                    <div className="brands-container">
-                        { renderBrands(props.brands) }
-                    </div>
-                </Popup>
-                <label for="checkbox-2">
-                    <input type="checkbox" id="checkbox-2" name="checkbox-2"/>
-                    ⭐ Typy
-                </label>
-                <label for="checkbox-3">
-                    <input type="checkbox" id="checkbox-3" name="checkbox-3"/>
-                🍐 Pears
-                </label>
-                <label for="checkbox-4">
-                    <input type="checkbox" id="checkbox-4" name="checkbox-4"/>
-                🍐 Pears
-                </label>
+                { renderTypes(props.types) }
             </div>
         </div>
     );

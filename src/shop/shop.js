@@ -73,7 +73,7 @@ class Shop extends React.Component {
 
     prevPage() {
         window.scrollTo(0, 0);
-        
+
         this.setState({
             currentPage: this.state.currentPage-1
         });
@@ -98,6 +98,7 @@ class Shop extends React.Component {
                     filters={ this.state.filters }
                     sorting={ this.state.sorting }
                     changeSort={ this.changeSort }
+                    items={ this.state.itemCount }
                 />
                 <hr />
                 <div className="split">
@@ -105,6 +106,7 @@ class Shop extends React.Component {
                         active={ this.state.filters }
                         changeFilters={ this.changeFilters }
                         brands={ this.state.brandDB }
+                        types={ this.itemTypes }
                     />
                     <PageView
                         filters={ this.state.filters }

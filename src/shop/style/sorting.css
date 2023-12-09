@@ -1,3 +1,10 @@
+#itemCount {
+  position: absolute;
+  left: max(12.5vw, 160px);
+  top: max(8.5vw, 150px);
+  color: #102B3F;
+}
+
 .dropdownSort {
     position: absolute;
     top: max(105px, 7.5vw);
@@ -62,4 +69,4 @@
 
 #touch {position: absolute; opacity: 0; height: 0px;}    
 
-#touch:checked + .slide {height: 170px;} 
+#touch:checked + .slide {height: 170px;}

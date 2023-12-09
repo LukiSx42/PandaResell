@@ -17,9 +17,12 @@ function TopBar(props) {
         "name": "Od Najlacnejších",
         "id": "broke"
     }
+
     return (
         <div>
             <h1>« Všetky Produkty »</h1>
+            <h3 id="itemCount">♠️ { props.items } itemov</h3>
+
             <div className="dropdownSort">
                 <nav>
                     <label for="touch"><span>{ props.sorting.name.toUpperCase() }</span></label>               
