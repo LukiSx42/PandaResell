@@ -73,7 +73,7 @@ class ItemOnPage extends React.Component {
                 <div className="nft">
                     <div className='nftMain'>
                         <img className='tokenImage' src={"/images/" + this.props.item.seller + "/" + this.props.item.id +"_icon.png" } alt="Item" />
-                        <h2>{ this.getTypeEmoji() } { this.props.item.brand.join(" ").toUpperCase() }</h2>
+                        <h2>{ this.getTypeEmoji() } { (this.props.item.brand[0].toUpperCase() != this.props.item.type[0].toUpperCase()) ? this.props.item.brand.join(" ").toUpperCase() : "???" }</h2>
                         <p className='description'>{ this.props.item.name }</p>
                         <div className='tokenInfo'>
                             <div className="price">

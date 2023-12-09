@@ -64,12 +64,16 @@ class Shop extends React.Component {
     }
 
     nextPage() {
+        window.scrollTo(0, 0);
+
         this.setState({
             currentPage: this.state.currentPage+1
         });
     }
 
     prevPage() {
+        window.scrollTo(0, 0);
+        
         this.setState({
             currentPage: this.state.currentPage-1
         });
