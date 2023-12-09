@@ -11,16 +11,16 @@ class Scraper:
         self.yupoo = YupooScraper(self.cfg, self.db, self.driver, self.emojis)
     
     def loadDatabase(self):
-        if not os.path.exists("data/db.json"):
+        if not os.path.exists("../src/config/db.json"):
             db = {
                 "shops": []
             }
-            f = open("data/db.json", 'w')
+            f = open("../src/config/db.json", 'w')
             f.write(json.dumps(db, indent=4))
             f.close()
             return { "known": [] }
         else:
-            f = open("data/db.json")
+            f = open("../src/config/db.json")
             db = json.loads(f.read())
             f.close()
 
@@ -34,7 +34,7 @@ class Scraper:
 
     
     def updateDatabase(self, seller, shop, data):
-        f = open("data/db.json", 'r')
+        f = open("../src/config/db.json", 'r')
         db = json.loads(f.read())
         f.close()
 
@@ -45,7 +45,7 @@ class Scraper:
         
         db[shopID] = data
 
-        f = open("data/db.json", 'w')
+        f = open("../src/config/db.json", 'w')
         f.write(json.dumps(db, indent=4))
         f.close()
 

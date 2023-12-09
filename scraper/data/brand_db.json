@@ -405,7 +405,8 @@
         "PA": {
             "name": "Palm Angels",
             "aliases": [
-                "P <STAR><STAR> <STAR> A <STAR><STAR> <STAR> S"
+                "P <STAR><STAR> <STAR> A <STAR><STAR> <STAR> S",
+                "P<STAR><STAR> <STAR> A <STAR><STAR> <STAR> S"
             ]
         },
         "PALACE": {

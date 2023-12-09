@@ -6,9 +6,21 @@ import ItemOnPage from './item';
 class PageView extends React.Component {
     constructor(props) {
         super(props);
-        let c = 0;
-        this.parsePages().forEach(item => { c++; })
-        this.props.pageUpdate(c);
+    }
+
+    findAllBrands(items) {
+        let brandDB = {};
+        items.forEach(item => {
+            item.brand.forEach(brand => {
+                if (Object.keys(brandDB).indexOf(brand) === -1) {
+                    brandDB[brand] = 1;
+                } else {
+                    brandDB[brand]++;
+                }
+            });
+        });
+
+        return brandDB;
     }
 
     parsePages() {
@@ -51,7 +63,6 @@ class PageView extends React.Component {
 
     renderPage(displayPage) {
         console.log("RENDERING PAGE!");
-        let c = 0;
         let page = [];
         let items = [];
         ItemDB.shops.forEach(shop => {
@@ -72,9 +83,7 @@ class PageView extends React.Component {
             });
         }
         
-        console.log(items);
-
-        let i = 0;
+        let i = 0; // this 'i' is used for pageUpdate();   (pls leave it, thx)
         items.forEach(item => {
             if (i >= 25 * (this.props.currentPage) && i < 25 * (this.props.currentPage+1)) {
                 page.push(<ItemOnPage item={ item } />);
@@ -91,6 +100,13 @@ class PageView extends React.Component {
                     <h1>⛔ Nenašli sa žaidne itemy ⛔</h1>
                 </div>
             );
+        }
+
+        /* Updating Values/DBs */
+        if (this.props.doUpdate) {
+            this.props.updateBrands(this.findAllBrands(items)); // Brand update
+            
+            this.props.pageUpdate(Math.ceil(i/25)); // Page update
         }
 
         return <div>{page}</div>;

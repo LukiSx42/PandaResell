@@ -1,15 +1,17 @@
+import loadItemTypes from "./scripts/loadItemTypes";
+import Bottom from "../components/bottom";
+import PageView from "./pageView";
+import Filters from "./filters";
+import PageNav from "./pageNav";
+import TopBar from "./topBar";
 import React from "react";
 import './style/shop.css';
-import TopBar from "./topBar";
-import Filters from "./filters";
-import PageView from "./pageView";
-import ShopConfig from '../config/shopConfig.json';
-import Bottom from "../components/bottom";
-import PageNav from "./pageNav";
 
 class Shop extends React.Component {
     constructor(props) {
         super(props);
+
+        this.itemTypes = loadItemTypes();
 
         this.state = {
             currentPage: 0,
@@ -19,19 +21,32 @@ class Shop extends React.Component {
             sorting: {
                 "name": "Základné Zoradenie",
                 "id": "default"
-            }
+            },
+            brandDB: {},
+            itemCount: 0,
+            doUpdate: true
         }
 
+        this.updateItemCount = this.updateItemCount.bind(this);
+        this.changeFilters = this.changeFilters.bind(this);
+        this.updateBrands = this.updateBrands.bind(this);
         this.pageUpdate = this.pageUpdate.bind(this);
+        this.changeSort = this.changeSort.bind(this);
         this.nextPage = this.nextPage.bind(this);
         this.prevPage = this.prevPage.bind(this);
-        this.changeFilters = this.changeFilters.bind(this);
-        this.changeSort = this.changeSort.bind(this);
     }
 
     changeFilters(updated) {
+        let nf = [...this.state.filters];
+        if (updated in this.state.filters) {
+            nf.pop(nf.indexOf(updated));
+        } else {
+            nf.push(updated);
+        }
+
         this.setState({
-            filters: updated
+            filters: nf,
+            doUpdate: true
         });
     }
 
@@ -43,7 +58,8 @@ class Shop extends React.Component {
 
     pageUpdate(maxCount) {
         this.setState({
-            pageCount: maxCount
+            pageCount: maxCount,
+            doUpdate: false
         });
     }
 
@@ -59,16 +75,50 @@ class Shop extends React.Component {
         });
     }
 
+    updateBrands(brands) {
+        this.setState({
+            brandDB: brands
+        });
+    }
+
+    updateItemCount(itemCount) {
+        this.setState({
+            itemCount: itemCount
+        });
+    }
+
     render() {
         return (
             <div className="shopBlock">
-                <TopBar filters={ this.state.filters } sorting={ this.state.sorting } changeSort={ this.changeSort } />
+                <TopBar 
+                    filters={ this.state.filters }
+                    sorting={ this.state.sorting }
+                    changeSort={ this.changeSort }
+                />
                 <hr />
                 <div className="split">
-                    <Filters cfg={ ShopConfig.filters } active={ this.state.filters } changeFilters={ this.changeFilters } />
-                    <PageView filters={ this.state.filters } currentPage={ this.state.currentPage } pageUpdate={ this.pageUpdate } sorting={ this.state.sorting } />
+                    <Filters
+                        active={ this.state.filters }
+                        changeFilters={ this.changeFilters }
+                        brands={ this.state.brandDB }
+                    />
+                    <PageView
+                        filters={ this.state.filters }
+                        currentPage={ this.state.currentPage }
+                        pageUpdate={ this.pageUpdate }
+                        sorting={ this.state.sorting }
+                        updateBrands={ this.updateBrands }
+                        doUpdate={ this.state.doUpdate }
+                        itemCount={ this.state.itemCount }
+                        updateItemCount={ this.updateItemCount }
+                    />
                 </div>
-                <PageNav current={ this.state.currentPage } max={ this.state.pageCount } nextPage={ this.nextPage } prevPage={ this.prevPage } />
+                <PageNav
+                    current={ this.state.currentPage }
+                    max={ this.state.pageCount }
+                    nextPage={ this.nextPage }
+                    prevPage={ this.prevPage }
+                />
                 <Bottom />
             </div>
         );

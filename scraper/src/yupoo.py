@@ -13,7 +13,7 @@ class YupooScraper:
         self.types = self.loadTypeDB()
     
     def loadTypeDB(self):
-        f = open("./data/type_db.json", 'r')
+        f = open("../src/config/type_db.json", 'r')
         type_db = json.loads(f.read())
         f.close()
         return type_db
@@ -187,6 +187,7 @@ class YupooScraper:
                         time.sleep(self.cfg["options"]["image_load_time"])
                         continue
                     
+                    time.sleep(self.cfg["options"]["image_load_time"]) # Prevention of image looking gray-ish
                     if viewer.get_attribute("src").split("/")[-2] == iconID: # If the image is used as an icon
                         viewer.screenshot(item["imagePath"]+"_icon.png")
                         iconImg = True
@@ -307,7 +308,8 @@ class YupooScraper:
                     # TYPE PARSING (FULL DETECTION IS NOT REQUIRED WITH HUSKY REPS (hopefully))
                     if len(i["type"]) > 1:
                         i["type"] = i["type"][:name.count("￥")]
-                    
+
+                    print(i)                    
                     print("[Y] Parsed an {} {} selling for ￥ {}".format(i["brand"], i["type"], i["basePrice"]["yuan"]))
             except Exception as e:
                 print("[Y] Unknown exception occurred: {}\n >> Skipping item...".format(str(e)))

@@ -2,6 +2,7 @@ import React from "react";
 import '../style/kontakt.css';
 import Navbar from './navbar';
 import BottomBar from './bottom';
+import Popup from 'reactjs-popup';
 
 const KontaktCard = () => {
     return (
@@ -12,18 +13,18 @@ const KontaktCard = () => {
                 </div>
                 <div className="card-text">
                     <div className="portada">
-                        <img src="/kontakt_background.png" />
+                        <img src="/kontakt_background.jpg" />
                     </div>
                     <div className="title-total">   
                         <div className="title">
-                            Programátor / Reseller / Gamer
+                            Programátor / Reseller
                         </div>
                         <h2>LukiS</h2>
                         <div className="desc">
                             Už to bude 10 rokov čo programujem,
-                            aktuálne chodím na vysokú školu (aplikovaná informatika).
-                            Resellujem repy a aktuálne hrávam hlavne Apex Legends,
-                            ked tak niekedy aj CS2, Fortnite a kľudne aj Minecraft.
+                            aktuálne chodím na vysokú školu (aplikovaná informatika),
+                            resellujem repy. <br />
+                            Kontaktovať najlepšie cez Telegram alebo Discord
                         </div>
                     </div>
                 </div>
@@ -37,42 +38,44 @@ const SocialCards = () => {
         <div className="social-cards">
             <ul> 
                 <li>
-                <a href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span className="fa fa-discord">
-                        <img src="/icons/discord.svg" />
-                    </span>
-                </a> 
+                <Popup trigger={
+                    <a>
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                        <span className="fa">
+                            <img src="/icons/discord.svg" />
+                        </span>
+                    </a> 
+                }
+                position="bottom center">
+                    <div className="discord-popup">
+                        <b>lukis.eth</b>
+                    </div>
+                </Popup>
                 </li>
                 <li>
-                <a href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span className="fa fa-tiktok"></span>
-                </a> 
+                    <a href="https://twitter.com/LukiS_eth" target="_blank">
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                        <span className="fa">
+                            <img src="/icons/xlogo.svg" />
+                        </span>
+                    </a>
                 </li>
                 <li>
-                <a href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span className="fa fa-twitter"></span>
-                </a> 
-                </li>
-                <li>
-                <a href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span className="fa fa-instagram"></span>
-                </a> 
+                    <a href="/telegram.jpg" target="_blank">
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                        <span className="fa">
+                            <img src="/icons/telegram.svg" />
+                        </span>
+                    </a>
                 </li>
             </ul>  
         </div> 
