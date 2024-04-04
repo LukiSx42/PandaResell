@@ -23,30 +23,6 @@ class PageView extends React.Component {
         return brandDB;
     }
 
-    parsePages() {
-        let pages = [];
-        let page = [];
-        ItemDB.shops.map(shop => {
-            ItemDB[shop].map(item => {
-                // TODO: Filters
-                page.push(item);
-                if (Object.keys(page).length >= 25) {
-                    pages.push(...[page]);
-                    page = [];
-                }
-            });
-        });
-
-        if (page.length > 0) {
-            pages.push(page);
-        }
-        if (pages == []) {
-            pages = [[]];
-        }
-
-        return pages;
-    }
-
     randomSort(array) {
         let currentIndex = array.length,  randomIndex;
       
@@ -62,11 +38,22 @@ class PageView extends React.Component {
     }
 
     renderPage(displayPage) {
-        console.log("RENDERING PAGE!");
+        // console.log("RENDERING PAGE!");
         let page = [];
         let items = [];
         ItemDB.shops.forEach(shop => {
             ItemDB[shop].forEach(item => {
+                if (this.props.filters.length > 0) {
+                    let filtered = false;
+                    item.type.forEach(type => {
+                        if (this.props.filters.includes(type.toLowerCase())) {
+                            filtered = true;
+                        }
+                    });
+                    if (!filtered) {
+                        return;
+                    }
+                }
                 items.push(item);
             });
         });

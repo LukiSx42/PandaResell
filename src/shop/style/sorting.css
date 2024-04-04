@@ -1,8 +1,9 @@
 #itemCount {
   position: absolute;
-  left: max(12.5vw, 160px);
-  top: max(8.5vw, 150px);
+  left: max(13vw, 190px);
+  top: min(max(8.5vw, 150px), 200px);
   color: #102B3F;
+  font-size: 1.25vw;
 }
 
 .dropdownSort {

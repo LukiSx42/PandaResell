@@ -58,7 +58,7 @@ function HomeItems() {
       <div className="section-row">
         <div className="section-col">
           <div className="section">
-            <div className="section-in">
+            <div className="section-in" onClick={ () => { window.location.href = "/itemy"; } }>
               <img src="/tricka.png" alt="" />
             </div>
           </div>
@@ -68,7 +68,7 @@ function HomeItems() {
         </div>
         <div className="section-col">
           <div className="section">
-            <div className="section-in">
+            <div className="section-in" onClick={ () => { window.location.href = "/itemy"; } }>
               <img src="/topanky.png" alt="" />
             </div>
           </div>
@@ -78,7 +78,7 @@ function HomeItems() {
         </div>
         <div className="section-col">
           <div className="section">
-            <div className="section-in">
+            <div className="section-in" onClick={ () => { window.location.href = "/itemy"; } }>
               <img src="/mikiny_svetre.png" alt="" />
             </div>
           </div>
@@ -88,7 +88,7 @@ function HomeItems() {
         </div>
         <div className="section-col">
           <div className="section">
-            <div className="section-in">
+            <div className="section-in" onClick={ () => { window.location.href = "/itemy"; } }>
               <img src="/vetrovky.png" alt="" />
             </div>
           </div>
@@ -98,7 +98,7 @@ function HomeItems() {
         </div>
         <div className="section-col">
           <div className="section">
-            <div className="section-in">
+            <div className="section-in" onClick={ () => { window.location.href = "/itemy"; } }>
               <img src="/nohavice.png" alt="" />
             </div>
           </div>
@@ -108,7 +108,7 @@ function HomeItems() {
         </div>
         <div className="section-col">
           <div className="section">
-            <div className="section-in">
+            <div className="section-in" onClick={ () => { window.location.href = "/itemy"; } }>
               <img src="/vsetko.png" alt="" />
             </div>
           </div>

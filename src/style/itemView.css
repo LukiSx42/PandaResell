@@ -1,0 +1,273 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0;
+}
+
+.item-view-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:
+        url("/public/itemview.jpg")
+        center / cover no-repeat fixed;
+    z-index: -1;
+}
+
+.card-view {
+    font: 1em/1.618 Inter, sans-serif;
+
+    align-items: center;
+
+    height: 100%;
+    padding: 2vw;
+    margin: 0;
+
+    color: #224;
+}
+
+.card {
+    padding: 2vw;
+
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(10px);
+    margin: 1vw;
+    margin-top: 0;
+}
+
+.item-card {
+    display: block;
+    float: left;
+    width: 50%;
+    max-width: 71.5%;
+    min-width: 71.5%;
+    min-height: 60%;
+    max-height: 60%;
+    height: 60%;
+}
+
+.info-card {
+    display: block;
+    float: left;
+    max-width: 25%;
+    min-width: 25%;
+    min-height: 60%;
+    max-height: 60%;
+    height: 60%;
+}
+
+.card-footer {
+    font-size: 0.65em;
+    color: #446;
+}
+
+
+.info-card {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 0;
+}
+
+.info-card h1 {
+    font-size: 2vw;
+}
+
+main ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+main ul li {
+    --c: #6247AA;
+    color: var(--c);
+    font-size: 1.3vw;
+    border: 0.3em solid var(--c);
+    border-radius: 0.5em;
+    width: 12em;
+    height: 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 3em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    margin: 1em;
+}
+
+main ul li span {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: var(--c);
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
+}
+
+main ul li:hover {
+    cursor: pointer;
+    color: #E2CFEA;
+}
+
+main ul li:hover span {
+    transform: translateY(0) scale(2);
+}
+
+main ul li span:nth-child(1) {
+    --n: 1;
+}
+
+main ul li span:nth-child(2) {
+    --n: 2;
+}
+
+main ul li span:nth-child(3) {
+    --n: 3;
+}
+
+main ul li span:nth-child(4) {
+    --n: 4;
+}
+
+.btn-icon {
+    pointer-events: none;
+    position: absolute;
+    fill: #6247AA;
+    width: 2.5vw;
+    height: 2.5vw;
+    z-index: 2;
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+}
+
+.icon-active {
+    fill: #E2CFEA !important;
+}
+
+.icon-active-stroke {
+    stroke: #E2CFEA !important;
+}
+
+.photo-icon {
+    margin-top: 0.75vw;
+    margin-left: 3.6vw;
+}
+
+.cam-icon {
+    margin-top: 0.75vw;
+    margin-left: 4.4vw;
+    fill: none;
+    stroke: #6247AA;
+}
+
+.link-icon {
+    margin-top: 0.75vw;
+    margin-left: 2.6vw;
+    fill: none;
+    stroke: #6247AA;
+}
+
+.phone-icon {
+    margin-top: 0.9vw;
+    margin-left: 2.7vw;
+}
+
+.mainItemImage {
+    border-radius: 1vw;
+}
+
+.main-icon {
+    width: 22vw;
+}
+
+.main-size {
+    width: 40vw;
+}
+
+.sideItemImage {
+    width: 7.5vw;
+    border-radius: 1vw;
+    filter: brightness(60%);
+    transition: 0.3s;
+    border: 1px solid gray;
+}
+
+.side-active {
+    filter: brightness(90%);
+    border: 1px solid white;
+}
+
+.side-active:hover {
+    filter: brightness(90%) !important;
+    cursor: not-allowed !important;
+}
+
+.sideItemImage:hover {
+    filter: brightness(100%);
+    transition: 0.3s;
+    border: 1px solid white;
+}
+
+.side-item-box {
+    float: left;
+    display: flex;
+    justify-content:flex-start;  
+    flex-direction: column;
+}
+
+.side-item-box-select {
+    margin-top: 0.4vw;
+}
+
+.item {
+    overflow: hidden;
+    display: block;
+}
+
+.item img {
+    float: left;
+    text-align: left;
+}
+
+.item img:hover {
+    cursor: pointer;
+}
+
+.item-info-box {
+    float: left;
+    margin-left: 1vw;
+}
+
+.item-card h1 {
+    margin: 0;
+    font-size: 2vw;
+}
+
+.item-card p {
+    font-size: 1.125vw;
+}
+
+#card-credits {
+    position: absolute;
+    right: 1.1vw;
+    bottom: 0.3vw;
+}

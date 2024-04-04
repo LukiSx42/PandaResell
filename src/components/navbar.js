@@ -6,19 +6,19 @@ import { useNavigate } from "react-router-dom";
 function NavbarList(props) {
   return (
     <ul className="navbarList">
-      <li>
+      <li key="nav-1">
         <a href={((props.active == "kontakt") ? "#" : "/kontakt")}
           className={"navbarLink "+((props.active == "kontakt") ? "active" : "")}>
           📞 Kontakt
         </a>
       </li>
-      <li>
+      <li key="nav-2">
         <a href={((props.active == "itemy") ? "#" : "/itemy")}
           className={"navbarLink "+((props.active == "itemy") ? "active" : "")}>
           🔥 Itemy
         </a>
       </li>
-      <li>
+      <li key="nav-3">
         <a href={((props.active == "info") ? "#" : "/info")}
           className={"navbarLink "+((props.active == "info") ? "active" : "")}>
           📖 Info

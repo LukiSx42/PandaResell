@@ -1,3 +1,7 @@
+.filters {
+  display: block;
+}
+
 .filters h2 {
   background-color: rgba(98, 71, 170, 0.25);
   color: #102B3F;
@@ -8,353 +12,102 @@
   margin-top: 3px;
 }
 
-.filters ul {
-  margin-left: 1vw;
+:root {
+  --color-one: #52117d;
+  --color-two: #a944ec;
+  --color-three: #ffc800;
+  --color-accent: #A06CD5;
+  --color-text: #102B3F;
+  --color-bg: #062726;
 }
 
-@font-face {
-    font-family: "Mona Sans";
-    src: url("https://assets.codepen.io/64/Mona-Sans.woff2")
-        format("woff2 supports variations"),
-      url("https://assets.codepen.io/64/Mona-Sans.woff2")
-        format("woff2-variations");
-    font-weight: 100 1000;
-  }
-  
-  @layer properties {
-    @property --checkbox-color-hue {
-      syntax:'<number>';
-      inherits: true;
-      initial-value: 0;
-    }
-    @property --checkbox-color-saturation {
-      syntax:'<number>';
-      inherits: true;
-      initial-value: 0;
-    }
-    @property --checkbox-color-lightness {
-      syntax:'<number>';
-      inherits: true;
-      initial-value: 0;
-    }
-    @property --checkbox-color-light-lightness {
-       syntax:'<number>';
-      inherits: true;
-      initial-value: 0;   
-    }
-    @property --icon-opacity {
-       syntax:'<number>';
-      inherits: true;
-      initial-value: 0;   
-    }
-    @property --icon-invert {
-       syntax:'<number>';
-      inherits: true;
-      initial-value: 0;   
-    }
-    @property --icon-size {
-       syntax:'<number>';
-      inherits: true;
-      initial-value: 0;   
-    }
-    @property --negative-shadow-offset {
-       syntax:'<number>';
-      inherits: true;
-      initial-value: 0;   
-    }
-    @property --text-opacity {
-       syntax:'<number>';
-      inherits: true;
-      initial-value: 0;   
-    }
-  }
-  
-  .filters-container {
-    /* -- Colors: */
-    --body-bg-color: hsl(221deg 16% 12%);
-    --checkbox-color-hue: 216;
-    --checkbox-color-saturation: 17;
-    --checkbox-color-lightness: 15; 
-    --checkbox-color: #E2CFEA;
-    --checkbox-color-light: #E2CFEA;
-    --checkbox-color-dark: #E2CFEA;
-  
-    /* -- Box */
-    --checkbox-border-radius: 30%;
-    --checkbox-width: 20;
-    --checkbox-height: 20;
-  
-    --text-opacity: 1;
-    
-    --negative-shadow-offset: 500;
-    --active-shadow-opacity: 0;
-    
-    /* -- icon */
-    --icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='23' height='20' fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' class='feather feather-check'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
-    --icon-opacity: 0;
-    --icon-size: 1;
-    
-    /* -- easing */
-    --cubic-bezier: cubic-bezier(0.6, -1.2, 0.2, 2.2);
-  
-    /* -- misc */
-    --debug: 0;
-  }
-  
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-    /* debug */
-    outline: calc(var(--debug) * 1px) dashed red;
-  }
-  
-  
-.filters-container {
-    display: grid;
-    place-items: center;
-    font-family: "Mona Sans", sans-serif; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between;
-    align-items: start;
-    grid-gap: .8em;
-    transform: scale(1)
+.filters-container label span {
+  font-size: max(0.9vw, 19px);
+  display: inline;
+  align-items: center;
 }
-  
-.filters-container label[for*="checkbox"] {
-    cursor: pointer;
+
+.lns-checkbox {
+  display: inline-flex;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  align-items: center;
+  line-height: 1;
+  border-radius: 5px;
+  padding: 5px 7px 5px 7px;
+  user-select: none;
+  margin-bottom: 2px;
+
+  @media (min-width: 992px) {
+    font-size: 1.25rem;
+  }
+
+  span {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
-    grid-gap: 8px;
-    
-    /* text settings */
-    color: #E2CFEA;
-    font-size: max(0.9vw, 15px);
-    letter-spacing: .1em;
-    font-weight: 400;
-    
-    transition: --text-opacity .2s ease;
-    
-    &:hover {
-      --text-opacity: 1;
-       &:after {
-        --icon-opacity: .50;
-        --icon-invert: 100;
-        --icon-size: 0.8;
-       }
-       
-       input[type="checkbox"] {  
-         --checkbox-color-hue: 216;
-         --checkbox-color-saturation: 14;
-        --checkbox-color-lightness: 18;
-        --checkbox-color: hsl(
-          calc(var(--checkbox-color-hue) * 1deg) 
-          calc(var(--checkbox-color-saturation) * 1%) 
-          calc(var(--checkbox-color-lightness) * 1%) 
-        );
-      }
+    text-transform: capitalize;
+  }
+
+  input[type="checkbox"] {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+
+    &:checked + span::after {
+      background-color: var(--color-accent);
     }
-    
-  
-  
-    /* label:after */
-    &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      width: calc(var(--checkbox-width) * 1px);
-      height: calc(var(--checkbox-height) * 1px);
-      top: 0;
-      left: 0;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 70%;
-      border-radius: var(--checkbox-border-radius);
-      pointer-events: none;
-      background-image: var(--icon-check);
-      filter: invert(100%);
-      opacity: var(--icon-opacity);
-      transform: scale(var(--icon-size));
-      
-      /* here I couldn't animate --icon-invert */
-      transition: opacity .3s ease, filter .3s ease, transform .3s var(--cubic-bezier); 
-      
+
+    &:checked + span {
+      color: var(--color-accent);
     }
-  
-    &:has(input[type="checkbox"]:checked) {
-      &:after {
-        --icon-opacity: 1;
-        filter: invert(0%);
-        
-      }
+
+    &:focus + span::before {
+      border-color: var(--color-accent);
     }
-  
-    /* label input[type="checkbox"] */
-    & input[type="checkbox"] {
-      appearance: none;
-      cursor: pointer;
-      margin: 0;
-      background: var(--checkbox-color);
-      width: calc(var(--checkbox-width) * 1px);
-      height: calc(var(--checkbox-height) * 1px);
-      border: calc(calc(var(--checkbox-width) / 15) * 1px) solid black;
-      border-radius: var(--checkbox-border-radius);
-      box-shadow:inset 0 0 calc(calc(var(--checkbox-width) / 10) * 1px) rgba(0 0 0 / calc(var(--active-shadow-opacity))), 
-          inset 0 
-          calc(calc(var(--checkbox-width) / 20) * 1px)
-          calc(calc(var(--checkbox-width) / 30) * 1px) 
-          calc(calc(var(--checkbox-width) / var(--negative-shadow-offset)) * -1px)
-        
-        var(--checkbox-color-light),
-        inset 0 calc(calc(var(--checkbox-width) / 20) * -1px)
-          calc(calc(var(--checkbox-width) / 15) * 1px) calc(calc(var(--checkbox-width) / var(--negative-shadow-offset)) * -1px) var(--checkbox-color-dark);
-      transition: --checkbox-color-hue .1s ease,
-                  --checkbox-color-saturation .1s ease,
-                  --checkbox-color-lightness .1s ease,
-                  --checkbox-color 0s ease,
-                  --negative-shadow-offset .2s ease;
-      
-      
-      
-      &:active,
-      &:checked {
-        --checkbox-color-hue: 264; 
-        --checkbox-color-saturation: 56; 
-        --checkbox-color-lightness: 49; 
-        --checkbox-color: hsl(
-          calc(var(--checkbox-color-hue) * 1deg) /**/
-          calc(var(--checkbox-color-saturation) * 1%) /**/
-          calc(var(--checkbox-color-lightness) * 1%) /**/
-        );
-      }
-      
-      &:checked {
-          --checkbox-color-hue: 265;
-          --checkbox-color-saturation: 80;
-          --checkbox-color-lightness: 61;
-          --checkbox-color: hsl(
-            calc(var(--checkbox-color-hue) * 1deg) 
-            calc(var(--checkbox-color-saturation) * 1%) 
-            calc(var(--checkbox-color-lightness) * 1%) 
-          );
-       }    
-    }
-    
-    
-    &:active {
-      --active-shadow-opacity: 0.8;
-      &:after {
-        --icon-size: 0.7;
-      }
-      
-      & input[type="checkbox"] {
-        --negative-shadow-offset: 0;
+
+    &:disabled {
+      opacity: .85;
+      & + span {
+        color: #9a9a88;
       }
     }
   }
 
-.brands-btn {
-    position: relative;
-    background: #A06CD5;
-    color: #102B3F;
-    text-decoration: none;
-    text-transform: uppercase;
-    border: none;
-    font-size: max(0.75vw, 15px);
-    padding: 0.6rem 1.25rem;
-    transition: 0.2s;
-    border-radius: 25px;
-    margin-left: 0.6vw;
-    margin-bottom: 20px;
-  }
-  
-  .brands-btn:hover {
-    letter-spacing: 0.1rem;
-    padding: 0.6rem 1.25rem;
-    background: #A06CD5;
-    background: var(--clr);
-    color: var(--clr);
-    /* box-shadow: 0 0 35px var(--clr); */
-    animation: box 3s infinite;
-  }
-  
-  .brands-btn::before {
+  span::before {
     content: "";
-    position: absolute;
-    inset: 2px;
-    background: #E2CFEA;
-    border-radius: 25px;
+    display: inline-block;
+    border-radius: 3px;
+    background-color: #414051;
+    margin-right: 8px;
+    height: 16px;
+    width: 16px;
+    border: 1px solid transparent;
   }
-  
-  .brands-btn span {
-    position: relative;
-    z-index: 1;
+
+  input[type="checkbox"] {
   }
-  .brands-btn i {
-    position: absolute;
-    inset: 0;
-    display: block;
-  }
-  
-  .brands-btn i::before {
+
+  span::after {
     content: "";
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    border-radius: 3px;
+    background-color: transparent;
+    left: 3px;
     position: absolute;
-    width: 10px;
-    height: 2px;
-    left: 80%;
-    top: -2px;
-    border: 2px solid var(--clr);
-    background: #272822;
-    transition: 0.2s;
+    top: 0.26vw;
   }
-  
-  .brands-btn:hover i::before {
-    width: 15px;
-    left: 20%;
-    animation: move 3s infinite;
-  }
-  
-  .brands-btn i::after {
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 2px;
-    left: 20%;
-    bottom: -2px;
-    border: 2px solid var(--clr);
-    background: #272822;
-    transition: 0.2s;
-  }
-  
-  .brands-btn:hover i::after {
-    width: 15px;
-    left: 80%;
-    animation: move 3s infinite;
-  }
-  
-  @keyframes move {
-    0% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(5px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-  
-  @keyframes box {
-    0% {
-      box-shadow: #27272c;
-    }
-    50% {
-      box-shadow: 0 0 25px var(--clr);
-    }
-    100% {
-      box-shadow: #27272c;
-    }
-  }
+}
+
+.lns-checkbox {
+  cursor: pointer;
+  margin-bottom: 0.5vw;
+}

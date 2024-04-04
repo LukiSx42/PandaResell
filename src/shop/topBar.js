@@ -25,16 +25,16 @@ function TopBar(props) {
 
             <div className="dropdownSort">
                 <nav>
-                    <label for="touch"><span>{ props.sorting.name.toUpperCase() }</span></label>               
+                    <label htmlFor="touch"><span>{ props.sorting.name.toUpperCase() }</span></label>               
                     <input type="checkbox" id="touch" /> 
 
-                    <ul class="slide">
-                        <li><a onClick={(props.sorting.id != defaultSort.id) ? ()=>{props.changeSort(defaultSort)} : ()=>{}} >🛍️ { defaultSort.name }</a></li> 
-                        <li><a onClick={(props.sorting.id != randomSort.id) ? ()=>{props.changeSort(randomSort)} : ()=>{}} >❓ { randomSort.name }</a></li> 
-                        <li><a onClick={(props.sorting.id != richSort.id) ? ()=>{props.changeSort(richSort)} : ()=>{}} >💎 { richSort.name }</a></li>
-                        <li><a onClick={(props.sorting.id != brokeSort.id) ? ()=>{props.changeSort(brokeSort)} : ()=>{}} >🪙 { brokeSort.name }</a></li>
+                    <ul className="slide">
+                        <li key="sort-1"><a onClick={(props.sorting.id != defaultSort.id) ? ()=>{props.changeSort(defaultSort)} : ()=>{}} >🛍️ { defaultSort.name }</a></li> 
+                        <li key="sort-2"><a onClick={(props.sorting.id != randomSort.id) ? ()=>{props.changeSort(randomSort)} : ()=>{}} >❓ { randomSort.name }</a></li> 
+                        <li key="sort-3"><a onClick={(props.sorting.id != richSort.id) ? ()=>{props.changeSort(richSort)} : ()=>{}} >💎 { richSort.name }</a></li>
+                        <li key="sort-4"><a onClick={(props.sorting.id != brokeSort.id) ? ()=>{props.changeSort(brokeSort)} : ()=>{}} >🪙 { brokeSort.name }</a></li>
                     </ul>
-                </nav> 
+                </nav>
             </div>
         </div>
     );

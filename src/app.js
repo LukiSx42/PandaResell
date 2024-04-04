@@ -7,8 +7,10 @@ import './style/index.css';
 import Home from './components/home.js';
 import Info from './components/info.js';
 import Itemy from './components/itemy.js';
+import Error from './components/error.js';
 import Kontakt from './components/kontakt.js';
 import CommingSoon from './components/soon.js';
+import ItemView from './components/itemView.js';
 
 
 function App() {
@@ -35,6 +37,16 @@ function App() {
                     <Route
                         path="/kontakt"
                         element={<Kontakt />}
+                    />
+
+                    <Route
+                        path="/itemView"
+                        element={<ItemView />}
+                    />
+
+                    <Route
+                        path="/error"
+                        element={<Error />}
                     />
  
                     <Route

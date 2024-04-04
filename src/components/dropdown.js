@@ -6,7 +6,7 @@ const Dropdown = () => {
         <div className="dropdownBody">
             <div className="sec-center"> 	
                 <input className="dropdown" type="checkbox" id="dropdown" name="dropdown"/>
-                <label className="for-dropdown" for="dropdown">
+                <label className="for-dropdown" htmlFor="dropdown">
                     ≡ Menu
                 </label>
                 <div className="section-dropdown"> 

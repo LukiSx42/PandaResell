@@ -17,8 +17,8 @@
 
 .filters {
     float: left;
-    width: max(10%, 110px);
-    margin-left: 1vw;
+    width: max(12%, 175px);
+    margin-left: 0.2vw;
     border-right: 5px solid #102B3F;
     border-radius: 4px;
     margin-bottom: 0.5vw;

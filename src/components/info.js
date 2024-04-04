@@ -28,7 +28,7 @@ const InfoCards = () => {
                     <h2>2. Objednať 🛍️</h2>
                     <p>
                         Objednávky prímam zatiaľ len manuálne (treba ma
-                        <a href="/kontakt"> kontaktovať</a>). Platí sa samozrejme za daný item + za shipping z číny (kďe sa nachádzajú výrobne repov).
+                        <a href="/kontakt"> kontaktovať</a>). Platí sa samozrejme za daný item + za shipping (shipping je veľmi drahý).
                     </p>
                     <img src="https://cdn-icons-png.flaticon.com/512/628/628748.png" alt="" />
                 </div>
@@ -54,10 +54,10 @@ const InfoQuestions = () => {
     return (
         <div id="questions-list">
             <div className="info-questions float-left">
-                <div className="bubble left">Bro ipsum dolor sit amet gaper backside single track, manny Bike epic clipless. Schraeder drop gondy, rail fatty slash gear jammer steeps</div>
-                <div className="bubble right">Ok, Thank you</div>
-                <div className="bubble left"> ut labore et dolore magna </div>
-                <div className="bubble right">👌</div>
+                <div className="bubble left">Akým spôsobom môžem zaplatiť? 💸</div>
+                <div className="bubble right">Aktuálne prímame platby pomocou: crypto🪙, bankový prevod💳 a hotovosť💵.</div>
+                <div className="bubble left">Kedy mám zaplatiť a ako?</div>
+                <div className="bubble right">Záleží na objednávke 📦, detaily sa dohodujú individuálne. 👍</div>
             </div>
             <div className="info-questions float-right">
                 <div className="bubble left">Bro ipsum dolor sit amet gaper backside single track, manny Bike epic clipless. Schraeder drop gondy, rail fatty slash gear jammer steeps</div>
@@ -66,10 +66,10 @@ const InfoQuestions = () => {
                 <div className="bubble right">👌</div>
             </div>
             <div className="info-questions">
-                <div className="bubble left">Bro ipsum dolor sit amet gaper backside single track, manny Bike epic clipless. Schraeder drop gondy, rail fatty slash gear jammer steeps</div>
-                <div className="bubble right">Ok, Thank you</div>
-                <div className="bubble left"> ut labore et dolore magna </div>
-                <div className="bubble right">👌</div>
+            <div className="bubble left">Ako funguje shipping 🚚? Koľko to stojí 💸 keď si chcem objednať 2 tričká?</div>
+                <div className="bubble right">Shipping 🚚 cca za jedno tričko je 10-15€, ale keď budeš objednávať tak ti vopred povieme presnú cenu koľko by ta to stálo.</div>
+                <div className="bubble left">A kedy to dostanem? 📅</div>
+                <div className="bubble right">Záleží koľko budeme mať objednávok v daný čas, ale väčšinou do 3-4 dní dostaneš fotky 📷. Potom cca 2 týždne kým to príde na Slovensko. 📦</div>
             </div>
         </div>
         

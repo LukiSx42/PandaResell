@@ -38,10 +38,12 @@ class Shop extends React.Component {
 
     changeFilters(updated) {
         let nf = [...this.state.filters];
-        if (updated in this.state.filters) {
-            nf.pop(nf.indexOf(updated));
+        let typeID = updated.target.name.toLowerCase();
+
+        if (this.state.filters.includes(typeID)) {
+            nf.pop(nf.indexOf(typeID));
         } else {
-            nf.push(updated);
+            nf.push(typeID);
         }
 
         this.setState({

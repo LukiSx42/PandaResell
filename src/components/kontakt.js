@@ -7,7 +7,7 @@ import Popup from 'reactjs-popup';
 const KontaktCard = () => {
     return (
         <div className="id-card">
-            <div className="card">
+            <div className="kontakt-card">
                 <div className="img-avatar">
                     <img src="/kontakt_avatar.png" />
                 </div>
@@ -23,8 +23,10 @@ const KontaktCard = () => {
                         <div className="desc">
                             Už to bude 10 rokov čo programujem,
                             aktuálne chodím na vysokú školu (aplikovaná informatika),
-                            resellujem repy. <br />
-                            Kontaktovať najlepšie cez Telegram alebo Discord
+                            resellujem repy.
+                            <br />
+                            <br />
+                            Email: <b>fantazia.reps@gmail.com</b>
                         </div>
                     </div>
                 </div>
@@ -37,7 +39,7 @@ const SocialCards = () => {
     return (
         <div className="social-cards">
             <ul> 
-                <li>
+                <li key="cards-1">
                 <Popup trigger={
                     <a>
                         <span />
@@ -55,7 +57,7 @@ const SocialCards = () => {
                     </div>
                 </Popup>
                 </li>
-                <li>
+                <li key="cards-2">
                     <a href="https://twitter.com/LukiS_eth" target="_blank">
                         <span />
                         <span />
@@ -66,7 +68,7 @@ const SocialCards = () => {
                         </span>
                     </a>
                 </li>
-                <li>
+                <li key="cards-3">
                     <a href="/telegram.jpg" target="_blank">
                         <span />
                         <span />
