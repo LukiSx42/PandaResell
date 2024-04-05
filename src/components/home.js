@@ -19,7 +19,7 @@ function HomeCards() {
           <div className="content">
             <h2>Info 📖</h2>
             <p style={{ fontFamily: 'Helvetica'}}>
-              Rýchly guide/tutorial ako si vybrať itemy, ako objednať, aký je pustup, kedy dostaneš itemy...
+              Rýchly návod ako si vybrať produkty, ako objednať, aký je pustup, kedy ich dostaneš...
             </p>
             <a href="/info">📖 📖 📖</a>
           </div>
@@ -27,9 +27,9 @@ function HomeCards() {
         <div className="box">
           <span></span>
           <div className="content">
-            <h2>Itemy 🔥</h2>
+            <h2>Shop 🔥</h2>
             <p style={{ fontFamily: 'Helvetica'}}>
-              Samotný shop kde vieš prehľadávať itemy, sortovať podľa typu itemov / značky / kvality
+              Samotný shop kde vieš prehľadávať produkty, zoraďovať podľa typu / značky / ceny produktu.
             </p>
             <a href="#" onClick={ scrollToItems }>🔥 🔥 🔥</a>
           </div>
@@ -42,7 +42,7 @@ function HomeCards() {
               Nenašiel si to čo si hladal?
               Chceš si niečo objednať?
               <br /> Máš nejaké iné otázky?
-              <br /> Kontaktuj ma!
+              <br /> Kontaktuj nás!
             </p>
             <a href="/kontakt" id="btnBlack">📞 📞 📞</a>
           </div>
@@ -58,7 +58,7 @@ function HomeItems() {
       <div className="section-row">
         <div className="section-col">
           <div className="section">
-            <div className="section-in" onClick={ () => { window.location.href = "/itemy"; } }>
+            <div className="section-in" onClick={ () => { window.location.href = "/shop?filter=T-Shirt"; } }>
               <img src="/tricka.png" alt="" />
             </div>
           </div>
@@ -68,7 +68,7 @@ function HomeItems() {
         </div>
         <div className="section-col">
           <div className="section">
-            <div className="section-in" onClick={ () => { window.location.href = "/itemy"; } }>
+            <div className="section-in" onClick={ () => { window.location.href = "/shop?filter=Shoes"; } }>
               <img src="/topanky.png" alt="" />
             </div>
           </div>
@@ -78,7 +78,7 @@ function HomeItems() {
         </div>
         <div className="section-col">
           <div className="section">
-            <div className="section-in" onClick={ () => { window.location.href = "/itemy"; } }>
+            <div className="section-in" onClick={ () => { window.location.href = "/shop?filter=Hoodie+Sweater"; } }>
               <img src="/mikiny_svetre.png" alt="" />
             </div>
           </div>
@@ -88,7 +88,7 @@ function HomeItems() {
         </div>
         <div className="section-col">
           <div className="section">
-            <div className="section-in" onClick={ () => { window.location.href = "/itemy"; } }>
+            <div className="section-in" onClick={ () => { window.location.href = "/shop?filter=Jacket"; } }>
               <img src="/vetrovky.png" alt="" />
             </div>
           </div>
@@ -98,7 +98,7 @@ function HomeItems() {
         </div>
         <div className="section-col">
           <div className="section">
-            <div className="section-in" onClick={ () => { window.location.href = "/itemy"; } }>
+            <div className="section-in" onClick={ () => { window.location.href = "/shop?filter=Pants"; } }>
               <img src="/nohavice.png" alt="" />
             </div>
           </div>
@@ -108,13 +108,13 @@ function HomeItems() {
         </div>
         <div className="section-col">
           <div className="section">
-            <div className="section-in" onClick={ () => { window.location.href = "/itemy"; } }>
+            <div className="section-in" onClick={ () => { window.location.href = "/shop"; } }>
               <img src="/vsetko.png" alt="" />
             </div>
           </div>
         </div>
         <div className="hover-text">
-          <h2>Všetky Itemy</h2>
+          <h2>Všetky Produkty</h2>
         </div>
       </div>
     </div>

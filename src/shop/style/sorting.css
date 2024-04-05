@@ -71,3 +71,7 @@
 #touch {position: absolute; opacity: 0; height: 0px;}    
 
 #touch:checked + .slide {height: 170px;}
+
+#filterText {
+  text-transform: capitalize;
+}

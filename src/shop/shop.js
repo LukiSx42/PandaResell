@@ -1,3 +1,4 @@
+import emojiFromType from "../shop/scripts/emojiFromType";
 import loadItemTypes from "./scripts/loadItemTypes";
 import Bottom from "../components/bottom";
 import PageView from "./pageView";
@@ -17,7 +18,7 @@ class Shop extends React.Component {
             currentPage: 0,
             pageCount: 1,
             maxItems: 25,
-            filters: [],
+            filters: this.loadFiltersFromUrl(),
             sorting: {
                 "name": "Základné Zoradenie",
                 "id": "default"
@@ -34,6 +35,21 @@ class Shop extends React.Component {
         this.changeSort = this.changeSort.bind(this);
         this.nextPage = this.nextPage.bind(this);
         this.prevPage = this.prevPage.bind(this);
+    }
+
+    loadFiltersFromUrl() {
+        if (!window.location.href.includes("?filter=")) { return []; }
+        
+        let filters = window.location.href.split("?filter=")[1].split("+");
+        let nf = []
+        filters.forEach(filter => {
+            let test = emojiFromType(filter);
+            if (test != "") { // If a filter is valid
+                nf.push(filter.toLowerCase());
+            }
+        });
+
+        return nf;
     }
 
     changeFilters(updated) {

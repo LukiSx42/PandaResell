@@ -13,9 +13,9 @@ function NavbarList(props) {
         </a>
       </li>
       <li key="nav-2">
-        <a href={((props.active == "itemy") ? "#" : "/itemy")}
+        <a href={((props.active == "itemy") ? "#" : "/shop")}
           className={"navbarLink "+((props.active == "itemy") ? "active" : "")}>
-          🔥 Itemy
+          🔥 Shop
         </a>
       </li>
       <li key="nav-3">

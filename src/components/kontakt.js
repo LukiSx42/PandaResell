@@ -23,7 +23,7 @@ const KontaktCard = () => {
                         <div className="desc">
                             Už to bude 10 rokov čo programujem,
                             aktuálne chodím na vysokú školu (aplikovaná informatika),
-                            resellujem repy.
+                            predávam repy.
                             <br />
                             <br />
                             Email: <b>fantazia.reps@gmail.com</b>

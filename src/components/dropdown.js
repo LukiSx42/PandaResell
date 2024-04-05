@@ -11,7 +11,7 @@ const Dropdown = () => {
                 </label>
                 <div className="section-dropdown"> 
                     <a href="/info">📖 Info</a>
-                    <a href="/itemy">🔥 Itemy</a>
+                    <a href="/shop">🔥 Shop</a>
                     <a href="/kontakt">📞 Kontakt</a>
                 </div>
             </div>

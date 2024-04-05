@@ -30,7 +30,7 @@ function App() {
                     />
  
                     <Route
-                        path="/itemy"
+                        path="/shop"
                         element={<Itemy />}
                     />
 

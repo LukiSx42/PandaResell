@@ -1,4 +1,6 @@
 .info {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 2vw;
     background-color: #E2CFEA;
@@ -151,15 +153,43 @@
     .header p {
         width: 30%;
     }
-    
 }
 
 
 /* InfoQuestions */
 
+@media (min-width: 1100px) {
+    .questions-list {
+        display: inline-block;
+    }
 
-.questions-list {
-    display: inline-block;
+    .float-left {
+        position: absolute;
+    }
+
+    .float-right {
+        position: absolute;
+    }
+}
+
+@media (max-width: 1100px) {
+    .questions-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .info-questions {
+        border-top: 2px solid #6247AA;
+        margin-bottom: 2vw !important;
+        padding-top: 2vw !important;
+    }
+
+    #questions-title {
+        font-size: 11vw !important;
+    }
+
+    .infoCards img {
+    }
 }
 
 .info-questions {
@@ -173,12 +203,10 @@
 }
 
 .float-left {
-    position: absolute;
     left: 10vw;
 }
 
 .float-right {
-    position: absolute;
     right: 10vw;
 }
 

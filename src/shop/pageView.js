@@ -84,7 +84,7 @@ class PageView extends React.Component {
         if (lenght == 0) {
             return (
                 <div className="error">
-                    <h1>⛔ Nenašli sa žaidne itemy ⛔</h1>
+                    <h1>⛔ Nenašli sa žaidne produkty ⛔</h1>
                 </div>
             );
         }
