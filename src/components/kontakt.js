@@ -9,11 +9,11 @@ const KontaktCard = () => {
         <div className="id-card">
             <div className="kontakt-card">
                 <div className="img-avatar">
-                    <img src="/kontakt_avatar.png" />
+                    <img src="/kontakt_avatar.png" alt="Avatar" />
                 </div>
                 <div className="card-text">
                     <div className="portada">
-                        <img src="/kontakt_background.jpg" />
+                        <img src="/kontakt_background.jpg" alt="Background" />
                     </div>
                     <div className="title-total">   
                         <div className="title">
@@ -41,13 +41,13 @@ const SocialCards = () => {
             <ul> 
                 <li key="cards-1">
                 <Popup trigger={
-                    <a>
+                    <a href="#">
                         <span />
                         <span />
                         <span />
                         <span />
                         <span className="fa">
-                            <img src="/icons/discord.svg" />
+                            <img src="/icons/discord.svg" alt="Discord" />
                         </span>
                     </a> 
                 }
@@ -58,24 +58,24 @@ const SocialCards = () => {
                 </Popup>
                 </li>
                 <li key="cards-2">
-                    <a href="https://twitter.com/LukiS_eth" target="_blank">
+                    <a href="https://twitter.com/LukiS_eth" rel="noreferrer" target="_blank">
                         <span />
                         <span />
                         <span />
                         <span />
                         <span className="fa">
-                            <img src="/icons/xlogo.svg" />
+                            <img src="/icons/xlogo.svg"  alt="X" />
                         </span>
                     </a>
                 </li>
                 <li key="cards-3">
-                    <a href="/telegram.jpg" target="_blank">
+                    <a href="/telegram.jpg" rel="noreferrer" target="_blank">
                         <span />
                         <span />
                         <span />
                         <span />
                         <span className="fa">
-                            <img src="/icons/telegram.svg" />
+                            <img src="/icons/telegram.svg" alt="Telegram" />
                         </span>
                     </a>
                 </li>

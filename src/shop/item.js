@@ -19,20 +19,18 @@ class ItemOnPage extends React.Component {
     render() {
         return (
             <div className="nftBody" onClick={(ev) => {
-                window.open("/itemView?repId=" + this.props.item.id, '_blank').focus();
+                window.open("/itemView?repId=" + this.props.item.id, "_blank").focus();
             }}>
                 <div className="nft">
-                    <div className='nftMain'>
+                    <div className="nftMain">
                         <img
-                            className='tokenImage'
-                            src={"/images/" + this.props.item.seller + "/" + this.props.item.id +"_icon.png" }
-                            width={400}
-                            height={400}
+                            className="tokenImage"
+                            src={ "/images/" + this.props.item.seller + "/" + this.props.item.id + "_icon.png" }
                             alt="Item"
                         />
-                        <h2>{ emojiFromType(this.props.item.type) } { (this.props.item.brand[0].toUpperCase() != this.props.item.type[0].toUpperCase()) ? this.props.item.brand.join(" ").toUpperCase() : "???" }</h2>
-                        <p className='description'>{ this.props.item.name }</p>
-                        <div className='tokenInfo'>
+                        <h2>{ emojiFromType(this.props.item.type) } { (this.props.item.brand[0].toUpperCase() !== this.props.item.type[0].toUpperCase()) ? this.props.item.brand.join(" ").toUpperCase() : "???" }</h2>
+                        <p className="description">{ this.props.item.name }</p>
+                        <div className="tokenInfo">
                             <div className="price">
                                 <ins>€</ins>
                                 <p>{ this.props.item.price[0][1] } EUR</p>

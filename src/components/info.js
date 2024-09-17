@@ -15,35 +15,35 @@ const InfoCards = () => {
             </div>
             <div className="row1-container">
                 <div className="infoBox infoBox-down cyan">
+                <img src="https://freeiconshop.com/wp-content/uploads/edd/search-var-flat.png" alt="" />
                 <h2>1. Nájsť Produkt 🔍</h2>
                     <p>
                         Najprv si treba nájsť produkty v tomto shope, alebo aj na reddite
-                        <a href="https://www.reddit.com/r/FashionReps/" target="_blank"> (r/FashionReps)</a>.
+                        <a href="https://www.reddit.com/r/FashionReps/" rel="noreferrer" target="_blank"> (r/FashionReps)</a>.
                         Ak vieš čo presne chceš, pokojne nás kontaktuj a my ti daný produkt nájdeme.
                     </p>
-                    <img src="https://freeiconshop.com/wp-content/uploads/edd/search-var-flat.png" alt="" />
                 </div>
             
                 <div className="infoBox red">
+                    <img src="https://cdn-icons-png.flaticon.com/512/628/628748.png" alt="" />
                     <h2>2. Objednať 🛍️</h2>
                     <p>
                         Objednávky prímame zatiaľ len manuálne (treba nás
                         <a href="/kontakt"> kontaktovať</a>). Platí sa samozrejme za daný item + za poštovné (poštovné je veľmi drahé).
                     </p>
-                    <img src="https://cdn-icons-png.flaticon.com/512/628/628748.png" alt="" />
                 </div>
             
                 <div className="infoBox infoBox-down blue">
+                    <img src="https://cdn.icon-icons.com/icons2/1859/PNG/512/camerafront_117938.png" alt="" />
                     <h2>3. Kontrola Kvality 📷</h2>
                     <p>Po danom čase, keď produkt bude prirpavený na odoslanie, tak ti pošleme veľmi kvalitné fotky (8k). Z ktorých nám dáš vedieť či je všetko v poriadku, prípadne sa dá požiadať o iný kus alebo aj o vrátenie penazí.</p>
-                    <img src="https://cdn.icon-icons.com/icons2/1859/PNG/512/camerafront_117938.png" alt="" />
                 </div>
             </div>
             <div className="row2-container">
                 <div className="infoBox orange">
+                    <img src="https://cdn-icons-png.flaticon.com/512/9037/9037060.png" alt="" />
                     <h2>4. Doručenie 🚚</h2>
                     <p>Keď budú všetky produkty pripravené, tak sa odošlú na Slovensko (väčšinou 2-3 týždne). Keď ich dostaneme, tak neni problém poslať poštou (platíš poštovné), alebo najlepšie balík osobne odovzdať.</p>
-                    <img src="https://cdn-icons-png.flaticon.com/512/9037/9037060.png" alt="" />
                 </div>
             </div>
         </div>

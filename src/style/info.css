@@ -188,7 +188,24 @@
         font-size: 11vw !important;
     }
 
-    .infoCards img {
+    .infoBox h2 {
+        font-size: 21px !important;
+    }
+
+    .cyan {
+        height: 210px !important;
+    }
+
+    .red {
+        height: 200px !important;
+    }
+
+    .blue {
+        height: 260px !important;
+    }
+
+    .orange {
+        height: 230px !important;
     }
 }
 

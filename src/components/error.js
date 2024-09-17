@@ -1,4 +1,3 @@
-import BottomBar from "../components/bottom";
 import Navbar from './navbar';
 import '../style/error.css';
 

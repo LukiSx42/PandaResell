@@ -14,6 +14,8 @@ function findItemById(id) {
         });
         if (!found) {
             return true;
+        } else {
+            return false;
         }
     });
 

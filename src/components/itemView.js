@@ -20,7 +20,7 @@ function renderItem(item) {
                     onClick={ (ev) => { window.open(ev.target.src, '_blank').focus(); } }
                     className="mainItemImage main-icon"
                     src={ "/images/" + item.seller + "/" + item.id + "_icon.png" }
-                    alt="Main Image"
+                    alt="Big"
                 />
                 <div className="side-item-box-select">
                     <img
@@ -33,7 +33,7 @@ function renderItem(item) {
                         }}
                         className="sideItemImage side-icon side-active"
                         src={ "/images/" + item.seller + "/" + item.id + "_icon.png" }
-                        alt="Side Image"
+                        alt="Small"
                     />
                     <img
                         onClick={ (ev) => {
@@ -45,7 +45,7 @@ function renderItem(item) {
                         }}
                         className="sideItemImage side-size"
                         src={ "/images/" + item.seller + "/" + item.id + "_size.png" }
-                        alt="Side Image"
+                        alt="Small2"
                     />
                 </div>
             </div>

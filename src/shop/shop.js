@@ -44,7 +44,7 @@ class Shop extends React.Component {
         let nf = []
         filters.forEach(filter => {
             let test = emojiFromType(filter);
-            if (test != "") { // If a filter is valid
+            if (test !== "") { // If a filter is valid
                 nf.push(filter.toLowerCase());
             }
         });

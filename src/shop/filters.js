@@ -30,10 +30,18 @@ function renderTypes(types, changeFilters, active) {
 
 function Filters(props) {
     return (
-        <div className="filters">
-            <h2>🔍 Filtre</h2>
-            <div className="filters-container">
-                { renderTypes(props.types, props.changeFilters, props.active) }
+        <div>
+            <div className="filters">
+                <h2>🔍 Filtre</h2>
+                <div className="filters-container">
+                    { renderTypes(props.types, props.changeFilters, props.active) }
+                </div>
+            </div>
+            <div className="mobile-filter-view">
+                <h2>🔍 Filtre</h2>
+                <div className="filters-container">
+                    { renderTypes(props.types, props.changeFilters, props.active) }
+                </div>
             </div>
         </div>
     );

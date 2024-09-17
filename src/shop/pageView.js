@@ -4,10 +4,6 @@ import ItemDB from '../config/db.json';
 import ItemOnPage from './item';
 
 class PageView extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     findAllBrands(items) {
         let brandDB = {};
         items.forEach(item => {
@@ -58,13 +54,13 @@ class PageView extends React.Component {
             });
         });
 
-        if (this.props.sorting.id == "random") {
+        if (this.props.sorting.id === "random") {
             items = this.randomSort(items);
-        } else if (this.props.sorting.id == "rich") {
+        } else if (this.props.sorting.id === "rich") {
             items.sort((a, b) => {
                 return b.basePrice.yuan[0] - a.basePrice.yuan[0];
             });
-        } else if (this.props.sorting.id == "broke") {
+        } else if (this.props.sorting.id === "broke") {
             items.sort((a, b) => {
                 return a.basePrice.yuan[0] - b.basePrice.yuan[0];
             });
@@ -81,7 +77,7 @@ class PageView extends React.Component {
         
         let lenght = 0;
         page.forEach(item => lenght++);
-        if (lenght == 0) {
+        if (lenght === 0) {
             return (
                 <div className="error">
                     <h1>⛔ Nenašli sa žaidne produkty ⛔</h1>
@@ -98,7 +94,7 @@ class PageView extends React.Component {
             this.props.updateItemCount(i); // Item Count update
         }
 
-        return <div>{page}</div>;
+        return <div className="page-content">{page}</div>;
     }
 
     render() {
