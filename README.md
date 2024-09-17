@@ -10,7 +10,7 @@
 ### 🔥 Sneak Peak
 
 #### Smooth Hover Animations
-<img src="screenshots/animation1.gif" alt="Animation 1" width="300"/>        |  <img src="screenshots/animation4.gif" alt="Animnation 4" width="500"/>
+<img src="screenshots/animation1.gif" alt="Animation 1" width="400"/>        |  <img src="screenshots/animation4.gif" alt="Animnation 4" width="400"/>
 :---------------------------------------------------------------------------:|:----------------------------------------------------------------:
 <img src="screenshots/animation3.gif" alt="Animation 3" width="400"/>        |  <img src="screenshots/animation2.gif" alt="Animnation 2" width="400"/>
 
